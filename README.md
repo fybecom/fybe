@@ -1,0 +1,2 @@
+# fybe
+Fybe CLI
