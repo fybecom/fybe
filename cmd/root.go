@@ -104,7 +104,7 @@ func init() {
 	viper.BindPFlag(oauth2ClientSecretDesignation, rootCmd.PersistentFlags().Lookup(oauth2ClientSecretDesignation))
 
 	rootCmd.PersistentFlags().StringVar(&oauth2TokenUrl, oauth2TokenUrlDesignation,
-		"https://auth.fybe.com/auth/realms/fybe/protocol/openid-connect/token",
+		"https://airlock.fybe.com/auth/realms/fybe/protocol/openid-connect/token",
 		"OAuth2 Token URL. Please refer to you customer panel to retrieve this information")
 	rootCmd.PersistentFlags().MarkHidden(oauth2TokenUrlDesignation)
 	viper.BindPFlag(oauth2TokenUrlDesignation, rootCmd.PersistentFlags().Lookup(oauth2TokenUrlDesignation))

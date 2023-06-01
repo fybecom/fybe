@@ -17,8 +17,8 @@ import (
 
 var vpcsGetCmd = &cobra.Command{
 	Use:     "vpcs",
-	Short:   "All about your VPCs.",
-	Long:    `Retrieves information about one or multiple VPCs. Filter by name.`,
+	Short:   "Lists your VPCs",
+	Long:    `Gets information about VPCs with filtering by name.`,
 	Example: `fybe get vpcs`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ApiRetrieveVpcListRequest := client.ApiClient().
@@ -28,8 +28,8 @@ var vpcsGetCmd = &cobra.Command{
 			Size(cliCmd.Size).
 			OrderBy([]string{cliCmd.OrderBy})
 
-		if listVpnNameFilter != "" {
-			ApiRetrieveVpcListRequest = ApiRetrieveVpcListRequest.Name(listVpnNameFilter)
+		if listVpcNameFilter != "" {
+			ApiRetrieveVpcListRequest = ApiRetrieveVpcListRequest.Name(listVpcNameFilter)
 		}
 
 		resp, httpResp, err := ApiRetrieveVpcListRequest.Execute()
@@ -40,13 +40,13 @@ var vpcsGetCmd = &cobra.Command{
 
 		if viper.GetString("output") != "json" && viper.GetString("output") != "yaml" {
 			var vpcs []*PrivateNetwork
-			for _, vpn := range resp.Data {
-				vpc := SetVpc(vpn.PrivateNetworkId, vpn.Name, vpn.Description, vpn.RegionName, vpn.DataCenter, vpn.Cidr, vpn.AvailableIps)
-				var len = len(vpn.Instances)
+			for _, vpcData := range resp.Data {
+				vpc := SetVpc(vpcData.PrivateNetworkId, vpcData.Name, vpcData.Description, vpcData.RegionName, vpcData.DataCenter, vpcData.Cidr, vpcData.AvailableIps)
+				var len = len(vpcData.Instances)
 				// if instance list has elements
 				if len > 0 {
 					var instanceIds []string
-					for _, instance := range vpn.Instances {
+					for _, instance := range vpcData.Instances {
 						instanceIds = append(instanceIds, strconv.FormatInt(instance.InstanceId, 10))
 					}
 					vpc.Instances = instanceIds
@@ -73,7 +73,7 @@ var vpcsGetCmd = &cobra.Command{
 		}
 
 		viper.BindPFlag("name", cmd.Flags().Lookup("name"))
-		listVpnNameFilter = viper.GetString("name")
+		listVpcNameFilter = viper.GetString("name")
 
 		return nil
 	},
@@ -82,6 +82,6 @@ var vpcsGetCmd = &cobra.Command{
 func init() {
 	cliCmd.GetCmd.AddCommand(vpcsGetCmd)
 
-	vpcsGetCmd.Flags().StringVarP(&listVpnNameFilter, "name", "n", "",
+	vpcsGetCmd.Flags().StringVarP(&listVpcNameFilter, "name", "n", "",
 		`Filter by VPC name`)
 }

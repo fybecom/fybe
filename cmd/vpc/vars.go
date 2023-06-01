@@ -9,7 +9,7 @@ var (
 
 // list
 var (
-	listVpnNameFilter string
+	listVpcNameFilter string
 )
 
 // get

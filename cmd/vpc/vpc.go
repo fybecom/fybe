@@ -41,14 +41,14 @@ func SetVpc(
 
 func mapInstancesToIds(data []apiClient.PrivateNetworkResponse) ([]byte, error) {
 	if viper.GetString("output") != "json" && viper.GetString("output") != "yaml" {
-		vpn := data[0]
+		vpcData := data[0]
 		var vpcs []*PrivateNetwork
-		vpc := SetVpc(vpn.PrivateNetworkId, vpn.Name, vpn.Description, vpn.RegionName, vpn.DataCenter, vpn.Cidr, vpn.AvailableIps)
-		var len = len(vpn.Instances)
+		vpc := SetVpc(vpcData.PrivateNetworkId, vpcData.Name, vpcData.Description, vpcData.RegionName, vpcData.DataCenter, vpcData.Cidr, vpcData.AvailableIps)
+		var len = len(vpcData.Instances)
 		// if instance list has elements
 		if len > 0 {
 			var instanceIds []string
-			for _, instance := range vpn.Instances {
+			for _, instance := range vpcData.Instances {
 				instanceIds = append(instanceIds, strconv.FormatInt(instance.InstanceId, 10))
 			}
 			vpc.Instances = instanceIds
