@@ -16,7 +16,7 @@ import (
 
 var permissionGetCommand = &cobra.Command{
 	Use:   "permissions",
-	Short: "All about the available servies and actions allowed.",
+	Short: "List services and permissions",
 	Long:  `Retrieves information about one or multiple apis and the actions that are allowed to be performed on them. Filter by apiName.`,
 	Run: func(cmd *cobra.Command, args []string) {
 

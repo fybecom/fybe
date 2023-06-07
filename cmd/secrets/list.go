@@ -16,7 +16,7 @@ import (
 
 var secretsGetCmd = &cobra.Command{
 	Use:     "secrets",
-	Short:   "All about your secrets",
+	Short:   "List your secrets",
 	Long:    `List and filter all secrets in your account filtered by type or name`,
 	Example: `fybe get secrets`,
 	Run: func(cmd *cobra.Command, args []string) {

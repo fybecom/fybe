@@ -25,8 +25,8 @@ import (
 
 var objectGetCmd = &cobra.Command{
 	Use:     "object",
-	Short:   "Download a S3 object(s).",
-	Long:    `Download a S3 object(s) in the given bucket.`,
+	Short:   "Download S3 objects",
+	Long:    `Download S3 objects from a bucket.`,
 	Example: `fybe get object --storageId f2db70cc-68ce-42fa-a27c-cec87b363619 --bucket bucket123 --path path1/fileName  `,
 	Run: func(cmd *cobra.Command, args []string) {
 

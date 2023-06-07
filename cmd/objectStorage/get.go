@@ -15,7 +15,7 @@ import (
 
 var objectStorageGetCmd = &cobra.Command{
 	Use:     "objectStorage [objectStorageId]",
-	Short:   "Get a specific object storage.",
+	Short:   "Get data about a object storage",
 	Long:    `Get a specific object storage based on its id.`,
 	Example: `fybe get objectStorage 1f771979-1c0f-44ab-ab5b-2c3752731b45`,
 	Run: func(cmd *cobra.Command, args []string) {

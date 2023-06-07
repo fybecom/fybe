@@ -20,8 +20,8 @@ var instanceCreateCmd = &cobra.Command{
 	Use:   "instance",
 	Short: "Create a new compute instance.",
 	Long:  `Create a new compute instance.`,
-	Example: `create instance -p 12 --imageId "111eebb0-dc70-4bc2-a7d0-c525dbe016a9" ` +
-		`--license "PleskHost" --productId "V1" -r "EU"`,
+	Example: `create instance --imageId "111eebb0-dc70-4bc2-a7d0-c525dbe016a9" ` +
+		`--license "PleskHost" --productId "V1"`,
 	Run: func(cmd *cobra.Command, args []string) {
 		createInstanceRequest := *instancesClient.NewCreateInstanceRequestWithDefaults()
 		content := cliCmd.OpenStdinOrFile()
@@ -128,13 +128,14 @@ func init() {
 		`Standard or custom image id. Defaults to 'Ubuntu 20.04'.`)
 
 	instanceCreateCmd.Flags().StringVar(&createInstanceProductId, "productId", "V1",
-		`Id of product to be used. See https://fybe.com/en/product-list/?show_ids=true`)
+		`Id of product to be used. See https://api.fybe.com/#/operations/createInstance`)
 
-	instanceCreateCmd.Flags().StringVarP(&createInstanceRegion, "region", "r", "EU",
-		`Region where instance should be created [EU, US-central, US-east, US-west or SIN]`)
+	instanceCreateCmd.Flags().StringVarP(&createInstanceRegion, "region", "r", "us-east-1",
+		`Region where instance should be created [us-central-1, us-east-1, us-west-1, eu-central-1, eu-west-1, ap-southeast-1]`)
 
 	instanceCreateCmd.Flags().Int64VarP(&createInstancePeriod, "period", "p", 1,
-		`Period contract length (1, 3, 6 or 12 months)`)
+		`Period contract length (1 month)`)
+	instanceCreateCmd.Flags().MarkHidden("period")
 
 	// optional flags
 	instanceCreateCmd.Flags().Int64SliceVar(&createInstanceSshKeys, "sshKeys", nil,

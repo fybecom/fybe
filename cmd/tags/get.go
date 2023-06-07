@@ -17,7 +17,7 @@ import (
 
 var tagGetCmd = &cobra.Command{
 	Use:   "tag [tagId]",
-	Short: "Info about a specific tag",
+	Short: "Get tag",
 	Long:  `Retrieves information about one tag identified by id.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		resp, httpResp, err := client.ApiClient().TagsApi.

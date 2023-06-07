@@ -23,7 +23,7 @@ import (
 
 var listBucketsCmd = &cobra.Command{
 	Use:     "buckets --storageId [objectStorageId]",
-	Short:   "All about your buckets.",
+	Short:   "List your buckets",
 	Long:    `Retrieves information about your buckets. Filter by name.`,
 	Example: `fybe get buckets`,
 	Run: func(cmd *cobra.Command, args []string) {

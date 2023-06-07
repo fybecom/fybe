@@ -15,8 +15,8 @@ import (
 
 var regionGetCmd = &cobra.Command{
 	Use:   "datacenters",
-	Short: "get all datacenters",
-	Long:  `Retrieves all available datacenters.`,
+	Short: "List all data centers",
+	Long:  `Retrieves all available data centers.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ApiRetrieveDatacenterListRequest := client.ApiClient().
 			ObjectStoragesApi.RetrieveDataCenterList(context.Background()).

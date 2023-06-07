@@ -19,7 +19,7 @@ type jmap map[string]interface{}
 
 var instanceGetCmd = &cobra.Command{
 	Use:   "instance [instanceId]",
-	Short: "Info about a specific instance.",
+	Short: "Get data about an instance",
 	Long:  `Retrieves information about an instance identified by id.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		resp, httpResp, err := client.ApiClient().InstancesApi.

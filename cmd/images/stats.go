@@ -16,7 +16,7 @@ import (
 // imageStatsGetCmd represents the get command
 var imageStatsGetCmd = &cobra.Command{
 	Use:     "images-stats",
-	Short:   "Info about custom images",
+	Short:   "Get data about a custom image",
 	Long:    `Retrieves information about available and used space for custom images.`,
 	Example: `fybe get images-stats`,
 	Run: func(cmd *cobra.Command, args []string) {

@@ -17,7 +17,7 @@ import (
 
 var roleGetCmd = &cobra.Command{
 	Use:   "role [roleId]",
-	Short: "Info about a specific role",
+	Short: "Get data about a role",
 	Long:  `Retrieves information about one role identified by id.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		resp, httpResp, err := client.ApiClient().RolesApi.

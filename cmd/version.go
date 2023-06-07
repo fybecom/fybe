@@ -15,7 +15,7 @@ var versionCmd = &cobra.Command{
 	Short: "Shows the version and exits",
 	Long: `Shows the current version of fybe CLI.
 
-For updates please refer to http://fybe.com/en/cli`,
+For updates please refer to https://github.com/fybecom/fybe`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("fybe %s\n", version)
 	},

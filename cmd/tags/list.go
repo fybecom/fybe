@@ -16,7 +16,7 @@ import (
 
 var tagsGetCmd = &cobra.Command{
 	Use:   "tags",
-	Short: "All about your tags",
+	Short: "List your tags",
 	Long:  `Retrieves information about one or multiple tags. Filter by name.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ApiRetrieveTagListRequest := client.ApiClient().

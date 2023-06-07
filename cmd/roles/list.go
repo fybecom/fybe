@@ -16,7 +16,7 @@ import (
 
 var rolesGetCmd = &cobra.Command{
 	Use:   "roles",
-	Short: "All about your role for a specific type",
+	Short: "List roles",
 	Long:  `Retrieves information about one or multiple roles for a specific permission type. Filter by name and apiName or tag name`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ApiRetrieveRolesList := client.ApiClient().RolesApi.

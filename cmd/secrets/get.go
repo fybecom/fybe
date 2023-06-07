@@ -17,7 +17,7 @@ import (
 
 var secretGetCmd = &cobra.Command{
 	Use:     "secret [secretId]",
-	Short:   "Info about a specific secret",
+	Short:   "Get secret",
 	Long:    `Get data about a specific secret on your account`,
 	Example: `fybe get secret 21`,
 	Run: func(cmd *cobra.Command, args []string) {

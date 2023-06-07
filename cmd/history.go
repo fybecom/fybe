@@ -45,7 +45,7 @@ func init() {
 	viper.BindPFlag("page", HistoryCmd.Flags().Lookup("page"))
 
 	HistoryCmd.PersistentFlags().Int64VarP(&Size, "size", "s", int64(DefaultPageSize),
-		`Number of elements per page.`)
+		`Elements per page.`)
 	viper.BindPFlag("size", HistoryCmd.Flags().Lookup("size"))
 
 	HistoryCmd.PersistentFlags().StringVarP(&OrderBy, "orderBy", "b", "timestamp:desc",

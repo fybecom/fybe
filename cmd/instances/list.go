@@ -16,7 +16,7 @@ import (
 
 var instancesGetCmd = &cobra.Command{
 	Use:     "instances",
-	Short:   "All about your instances.",
+	Short:   "List your instances",
 	Long:    `Retrieves information about one or multiple instances. Filter by name.`,
 	Example: `fybe get instances`,
 	Run: func(cmd *cobra.Command, args []string) {

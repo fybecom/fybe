@@ -14,7 +14,7 @@ import (
 var GetCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Show one or more resources",
-	Long:  `Shows information about one resource or a list of resources of a specific type`,
+	Long:  `Shows information about one resource or a list of resources`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Help()
 		os.Exit(0)
@@ -42,7 +42,7 @@ func init() {
 	viper.BindPFlag("page", GetCmd.Flags().Lookup("page"))
 
 	GetCmd.PersistentFlags().Int64VarP(&Size, "size", "s", int64(DefaultPageSize),
-		`Number of elements per page.`)
+		`Elements per page.`)
 	viper.BindPFlag("size", GetCmd.Flags().Lookup("size"))
 
 	GetCmd.PersistentFlags().StringVarP(&OrderBy, "orderBy", "b", "name:asc",

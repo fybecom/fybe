@@ -16,7 +16,7 @@ import (
 // imageGetCmd represents the get command
 var imageGetCmd = &cobra.Command{
 	Use:     "image [imageId]",
-	Short:   "Info about a specific image",
+	Short:   "Get data about an image",
 	Long:    `Retrieves information about one image by its id.`,
 	Example: `fybe get image 9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d`,
 	Run: func(cmd *cobra.Command, args []string) {

@@ -18,9 +18,9 @@ import (
 
 var vpcCreateCmd = &cobra.Command{
 	Use:     "vpc",
-	Short:   "Creates a new VPC.",
+	Short:   "Creates a new VPC",
 	Long:    `Creates a new VPC based on json / yaml input or arguments.`,
-	Example: `fybe create vpc --name vpnName --region EU --description "my vpn"`,
+	Example: `fybe create vpc --name myVPC --region us-east-1 --description "My First VPC"`,
 	Run: func(cmd *cobra.Command, args []string) {
 		createvpcRequest := *vpcs.NewCreatePrivateNetworkRequestWithDefaults()
 		content := cliCmd.OpenStdinOrFile()

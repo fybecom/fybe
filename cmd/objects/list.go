@@ -42,8 +42,8 @@ func GetObjectsList(bucketName string, prefix string, s3Client *minio.Client) []
 
 var objectsGetCmd = &cobra.Command{
 	Use:     "objects",
-	Short:   "lists S3 objects in a bucket.",
-	Long:    `lists S3 objects in the given bucket.`,
+	Short:   "Lists S3 objects in bucket",
+	Long:    `Lists S3 objects in the given bucket.`,
 	Example: `fybe get objects --storageId f2db70cc-68ce-42fa-a27c-cec87b363619 --bucket bucket123`,
 	Run: func(cmd *cobra.Command, args []string) {
 

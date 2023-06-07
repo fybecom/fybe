@@ -16,7 +16,7 @@ import (
 
 var objectsStorageGetCmd = &cobra.Command{
 	Use:     "objectStorages",
-	Short:   "All about your object storages.",
+	Short:   "List your object storages",
 	Long:    `Retrieves information about one or multiple object storages. Filter by region name or region slug`,
 	Example: `fybe get objectStorages`,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -70,8 +70,8 @@ func init() {
 	cliCmd.GetCmd.AddCommand(objectsStorageGetCmd)
 
 	objectsStorageGetCmd.Flags().StringVar(&listRegionFilter, "region", "",
-		`Filter by region, available regions: EU, US-central, SIN.`)
+		`Filter by region, available regions: us-central-1,	eu-central-1, ap-southeast-1.`)
 
 	objectsStorageGetCmd.Flags().StringVar(&listDataCenterNameFilter, "dataCenterName", "",
-		`Filter by datacenter name.`)
+		`Filter by data center name.`)
 }

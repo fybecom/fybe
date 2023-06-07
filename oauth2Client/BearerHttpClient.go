@@ -25,16 +25,16 @@ func BearerHttpClient(tokenUrl string, clientId string, clientSecret string, use
 		log.Fatal("tokenURL is not a well formed URL")
 	}
 	if clientId == "" {
-		log.Fatal("clientId is empty")
+		log.Fatal("clientId not provided. Did you provde it via 'fybe config set-credential' or attributes?")
 	}
 	if clientSecret == "" {
-		log.Fatal("clientSecret is empty")
+		log.Fatal("clientSecret not provided. Did you provde it via 'fybe config set-credential' or attributes?")
 	}
 	if user == "" {
-		log.Fatal("user is empty")
+		log.Fatal("user not provided. Did you provde it via 'fybe config set-credential' or attributes?")
 	}
 	if pass == "" {
-		log.Fatal("pass is empty")
+		log.Fatal("password not provided. Did you provde it via 'fybe config set-credential' or attributes?")
 	}
 
 	ctx := context.Background()

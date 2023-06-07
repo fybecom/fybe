@@ -21,7 +21,7 @@ var deleteBucketsCmd = &cobra.Command{
 	Use:     "bucket --storageId [objectStorageId] --name [bucketName]",
 	Short:   "Delete a specific bucket.",
 	Long:    `Delete a bucket you created by its name.`,
-	Example: `fybe delete bucket EU --storageId 1de451d4-9737-487d-9e5d-8f50a6c8d558 --name m123`,
+	Example: `fybe delete bucket --storageId 1de451d4-9737-487d-9e5d-8f50a6c8d558 --name m123`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ApiRetrieveObjectStorageRequest := client.ApiClient().
 			ObjectStoragesApi.RetrieveObjectStorage(context.Background(), deleteBucketObjectStorageId).
@@ -84,11 +84,11 @@ var deleteBucketsCmd = &cobra.Command{
 
 		if deleteBucketObjectStorageId == "" {
 			cmd.Help()
-			log.Fatal("Argument region is empty. Please provide a non empty storage id.")
+			log.Fatal("storageId missing.")
 		}
 		if deleteBucketName == "" {
 			cmd.Help()
-			log.Fatal("Argument bucketName is empty. Please provide a non empty bucketName.")
+			log.Fatal("bucketName missing.")
 		}
 
 		return nil
@@ -97,6 +97,6 @@ var deleteBucketsCmd = &cobra.Command{
 
 func init() {
 	cliCmd.DeleteCmd.AddCommand(deleteBucketsCmd)
-	deleteBucketsCmd.Flags().StringVarP(&deleteBucketObjectStorageId, "storageId", "s", "", `Id of the objectStorage where the bucket will be deleted`)
+	deleteBucketsCmd.Flags().StringVarP(&deleteBucketObjectStorageId, "storageId", "s", "", `Id of the objectStorage from which the bucket will be deleted`)
 	deleteBucketsCmd.Flags().StringVarP(&deleteBucketName, "name", "n", "", `Name of the bucket that will be deleted`)
 }

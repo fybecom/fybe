@@ -18,7 +18,7 @@ import (
 // listCmd represents the list command
 var imagesGetCmd = &cobra.Command{
 	Use:     "images",
-	Short:   "All about your images",
+	Short:   "List your images",
 	Long:    `Retrieves information about one or multiple images. Filter by name.`,
 	Example: `fybe get images`,
 	Run: func(cmd *cobra.Command, args []string) {

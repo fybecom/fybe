@@ -17,7 +17,7 @@ import (
 
 var usersGetCmd = &cobra.Command{
 	Use:   "users",
-	Short: "list all your users",
+	Short: "List all your users",
 	Long:  `Retrieves information about all the users of the customer`,
 	Run: func(cmd *cobra.Command, args []string) {
 		apiRetrieveUserListRequest := client.ApiClient().

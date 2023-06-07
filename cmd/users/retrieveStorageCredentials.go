@@ -14,7 +14,7 @@ import (
 
 var retrieveStorageCredentialsCmd = &cobra.Command{
 	Use:     "user-credentials --userId [userId] --storageId [objectStorageId]",
-	Short:   "Retrieve user credentials to access to Object Storage.",
+	Short:   "Get user credentials to access the Object Storage",
 	Long:    `Retrieves ACCESSKEY and SECRETKEY credentials to access to Object Storage.`,
 	Example: `fybe get user-credentials --userId 6cdf5968-f9fe-4192-97c2-f349e813c5e8 --storageId 921a081f-8144-4fa9-80c1-b1b4662cdb09`,
 	Run: func(cmd *cobra.Command, args []string) {

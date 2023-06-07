@@ -17,7 +17,7 @@ import (
 
 var vpcsGetCmd = &cobra.Command{
 	Use:     "vpcs",
-	Short:   "Lists your VPCs",
+	Short:   "List your VPCs",
 	Long:    `Gets information about VPCs with filtering by name.`,
 	Example: `fybe get vpcs`,
 	Run: func(cmd *cobra.Command, args []string) {

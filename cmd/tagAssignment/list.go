@@ -17,7 +17,7 @@ import (
 
 var listTagAssignmentsCmd = &cobra.Command{
 	Use:   "tagAssignments [tagId] [filter]",
-	Short: "List all assignments for specific tag.",
+	Short: "List all assignments of tag",
 	Long: `Retrive information about many or a single tag assignment that belong to a specific tag.
 	you can filter by resource type.`,
 	Run: func(cmd *cobra.Command, args []string) {
