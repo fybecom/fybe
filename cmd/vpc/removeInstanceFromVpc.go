@@ -18,7 +18,7 @@ var removeInstanceFromvpcCmd = &cobra.Command{
 	Long:    `Remove a specific instance from a specific VPC using their ips`,
 	Example: `fybe unassign vpc 12345 100`,
 	Run: func(cmd *cobra.Command, args []string) {
-		_, httpResp, err := client.ApiClient().PrivateNetworksApi.
+		_, httpResp, err := client.ApiClient().VirtualPrivateCloudVPCApi.
 			UnassignInstancePrivateNetwork(context.Background(), unassignvpcId, unassignInstanceId).
 			XRequestId(uuid.NewV4().String()).Execute()
 

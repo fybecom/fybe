@@ -22,7 +22,7 @@ var vpcsGetCmd = &cobra.Command{
 	Example: `fybe get vpcs`,
 	Run: func(cmd *cobra.Command, args []string) {
 		ApiRetrieveVpcListRequest := client.ApiClient().
-			PrivateNetworksApi.RetrievePrivateNetworkList(context.Background()).
+			VirtualPrivateCloudVPCApi.RetrievePrivateNetworkList(context.Background()).
 			XRequestId(uuid.NewV4().String()).
 			Page(cliCmd.Page).
 			Size(cliCmd.Size).

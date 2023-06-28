@@ -20,7 +20,7 @@ var vpcGetCmd = &cobra.Command{
 	Long:    `Retrieves information about one vpc identified by id.`,
 	Example: `fybe get vpc 12`,
 	Run: func(cmd *cobra.Command, args []string) {
-		resp, httpResp, err := client.ApiClient().PrivateNetworksApi.
+		resp, httpResp, err := client.ApiClient().VirtualPrivateCloudVPCApi.
 			RetrievePrivateNetwork(context.Background(), getvpcId).
 			XRequestId(uuid.NewV4().String()).Execute()
 

@@ -19,7 +19,7 @@ var vpcDeleteCmd = &cobra.Command{
 	Long:  `Specify a VPC id to delete. All the instances will be unassigned form this VPC`,
 	Run: func(cmd *cobra.Command, args []string) {
 		httpResp, err := client.ApiClient().
-			PrivateNetworksApi.DeletePrivateNetwork(context.Background(), deletevpcId).
+			VirtualPrivateCloudVPCApi.DeletePrivateNetwork(context.Background(), deletevpcId).
 			XRequestId(uuid.NewV4().String()).Execute()
 
 		util.HandleErrors(err, httpResp, "while deleting VPC")

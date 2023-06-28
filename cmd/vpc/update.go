@@ -45,7 +45,7 @@ var userUpdateCmd = &cobra.Command{
 			json.NewDecoder(strings.NewReader(string(content))).Decode(&updateVpcRequest)
 		}
 
-		resp, httpResp, err := client.ApiClient().PrivateNetworksApi.
+		resp, httpResp, err := client.ApiClient().VirtualPrivateCloudVPCApi.
 			PatchPrivateNetwork(context.Background(), updateVpnId).
 			PatchPrivateNetworkRequest(updateVpcRequest).
 			XRequestId(uuid.NewV4().String()).

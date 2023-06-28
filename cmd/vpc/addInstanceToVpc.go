@@ -18,7 +18,7 @@ var addInstanceTovpcCmd = &cobra.Command{
 	Long:    `Add a specific instance to a specific VPC using their ips`,
 	Example: `fybe assign vpc 12345 100`,
 	Run: func(cmd *cobra.Command, args []string) {
-		_, httpResp, err := client.ApiClient().PrivateNetworksApi.
+		_, httpResp, err := client.ApiClient().VirtualPrivateCloudVPCApi.
 			AssignInstancePrivateNetwork(context.Background(), vpcId, assignInstanceId).
 			XRequestId(uuid.NewV4().String()).Execute()
 

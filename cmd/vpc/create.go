@@ -46,7 +46,7 @@ var vpcCreateCmd = &cobra.Command{
 			json.NewDecoder(strings.NewReader(string(content))).Decode(&createvpcRequest)
 		}
 
-		resp, httpResp, err := client.ApiClient().PrivateNetworksApi.
+		resp, httpResp, err := client.ApiClient().VirtualPrivateCloudVPCApi.
 			CreatePrivateNetwork(context.Background()).XRequestId(uuid.NewV4().String()).
 			CreatePrivateNetworkRequest(createvpcRequest).Execute()
 
