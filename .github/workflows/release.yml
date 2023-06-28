@@ -35,8 +35,13 @@ jobs:
           go-version: 1.20
         id: go
 
-      - name: asd
-        run: echo $GOROOT && echo $GOPATH
+      - name: Debug
+        run: |
+          pwd
+          echo ${HOME}
+          echo ${GITHUB_WORKSPACE}
+          echo ${GOPATH}
+          echo ${GOROOT}
 
       # - name: Get dependecies
       #   run: go get .
