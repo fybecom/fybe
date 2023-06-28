@@ -38,6 +38,7 @@ jobs:
       - name: Debug
         run: |
           pwd
+          go version
           echo ${HOME}
           echo ${GITHUB_WORKSPACE}
           echo ${GOPATH}
