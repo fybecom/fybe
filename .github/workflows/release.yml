@@ -35,24 +35,8 @@ jobs:
         with:
           go-version: 1.20
       
-      # - name: Import GPG key
-      #   id: import_gpg
-      #   uses: crazy-max/ghaction-import-gpg@v5
-      #   with:
-      #     gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-      #     passphrase: ${{ secrets.PASSPHRASE }}
-      
-      - name: Build openapi client 
-        run: rm -rf apiclient; docker run --rm -v "${PWD}:/local" --env JAVA_OPTS='-Dio.swagger.parser.util.RemoteUrl.trustAll=true -Dio.swagger.v3.parser.util.RemoteUrl.trustAll=true' openapitools/openapi-generator-cli:v5.2.1 generate --skip-validate-spec --input-spec 'https://api.fybe.com/api-v1.yaml' --generator-name go --output /local/apiclient
-        env:
-          OPENAPIVOLUME: "openapivolume:/local"
-          OUTPUTLOCATION: "/local/"
-
       - name: Build fybe cli 
         run: go mod tidy && go mod download && go build -ldflags="-w -s"
-        env:
-          OPENAPIVOLUME: "openapivolume:/local"
-          OUTPUTLOCATION: "/local/"
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2.9.1
