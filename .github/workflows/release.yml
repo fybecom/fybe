@@ -16,7 +16,8 @@ name: release
 #       - 'v*'
 on: 
   push:
-    branches: [*]
+    branches: 
+      - 'feat/*'
 
 jobs:
   goreleaser:
