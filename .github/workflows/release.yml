@@ -39,7 +39,7 @@ jobs:
       #   run: go install golang.org/x/tools/cmd/goimports@latest
 
       - name: Build fybe cli 
-        run: go get . && go build -ldflags="-w -s"
+        run: go get . && go build
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2.9.1
