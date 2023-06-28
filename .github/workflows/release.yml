@@ -12,8 +12,8 @@
 name: release
 on:
   push:
-    branch:
-      - 'feat/*'
+    tags:
+      - 'v*'
 
 jobs:
   release:
