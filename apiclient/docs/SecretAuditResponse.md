@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **float32** | The identifier of the audit entry. | 
-**SecretId** | **float32** | Secret&#39;s id | 
-**Action** | **string** | Type of the action. | 
-**Timestamp** | **time.Time** | When the change took place. | 
-**TenantId** | **string** | Customer tenant id | 
+**Id** | **float32** | Audits Entry ID. | 
+**SecretId** | **float32** | Secret Identifier | 
+**Action** | **string** | Action Type. | 
+**Timestamp** | **time.Time** | Stamp of time when change was made. | 
+**TenantId** | **string** | Tenant ID of the Customer | 
 **CustomerId** | **string** | Customer number | 
-**ChangedBy** | **string** | User ID | 
-**Username** | **string** | Name of the user which led to the change. | 
-**RequestId** | **string** | The requestId of the API call which led to the change. | 
-**TraceId** | **string** | The traceId of the API call which led to the change. | 
-**Changes** | Pointer to **map[string]interface{}** | List of actual changes. | [optional] 
+**ChangedBy** | **string** | Identifier of the User | 
+**Username** | **string** | Name of the user who made the change. | 
+**RequestId** | **string** | The requestId of the API call that initiated the change | 
+**TraceId** | **string** | The traceID of the API call that initiated the change | 
+**Changes** | Pointer to **map[string]interface{}** | List of changes. | [optional] 
 
 ## Methods
 

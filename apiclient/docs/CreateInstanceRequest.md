@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ImageId** | **string** | Specify the ImageId to set up the compute instance. The default value is Ubuntu 20.04. | [default to "31800cb5-6592-4d39-984d-36d433c06efb"]
+**ImageId** | Pointer to **string** | Specify the ImageId to set up the compute instance. The default value is Ubuntu 22.04 (LTS). | [optional] [default to "a46a0297-7f23-41a5-b978-112e55019048"]
 **ProductId** | **string** | Specify the product to set up the compute instance. The default value is V1 | [default to "V1"]
-**Region** | **string** | Specify the region in which the compute instance should be located. Default is us-east-1 | [default to "us-east-1"]
+**Region** | Pointer to **string** | Specify the region in which the compute instance should be located. Default is us-east-1 | [optional] [default to "us-east-1"]
 **SshKeys** | Pointer to **[]int64** | This parameter represents an array of secretIds corresponding to public SSH keys that allow logging in as the defaultUser with administrator/root privileges on Linux/BSD systems. For more information, please refer to the Secrets Management API. | [optional] 
 **RootPassword** | Pointer to **int64** | The secretId field in this parameter refers to the password for the defaultUser with administrator/root privileges. Use SSH for Linux/BSD and RDP for Windows. For further details, please consult the Secrets Management API. | [optional] 
 **UserData** | Pointer to **string** | You can customize the Cloud-Init configuration during the start of a compute instance. [Cloud-Init](https://cloud-init.io/)  | [optional] 
 **License** | Pointer to **string** | To enhance your selected product, you may require an additional license, primarily for software licenses (excluding Windows). | [optional] 
-**Period** | **int64** | The initial contract period is measured in months and offers options of 1, 3, 6, or 12 months. The default period is 1 month. | [default to 1]
+**Period** | **int64** | The contract period is 1 month | [default to 1]
 **DisplayName** | Pointer to **string** | Custom name of the compute instance. The name that appears on the screen to represent the compute instance. | [optional] 
 **DefaultUser** | Pointer to **string** | The default username created for login with administrative privileges during (re-)installation depends on the operating system. For Linux/BSD, allowed values are admin (to be used with sudo for administrative privileges like root) or root. For Windows, allowed values are admin (with administrative privileges like administrator) or administrator. | [optional] [default to "admin"]
 **AddOns** | Pointer to [**CreateInstanceAddons**](CreateInstanceAddons.md) | To add corresponding addons to the instance, specify their attributes in the addons object. | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCreateInstanceRequest
 
-`func NewCreateInstanceRequest(imageId string, productId string, region string, period int64, ) *CreateInstanceRequest`
+`func NewCreateInstanceRequest(productId string, period int64, ) *CreateInstanceRequest`
 
 NewCreateInstanceRequest instantiates a new CreateInstanceRequest object
 This constructor will assign default values to properties that have it defined,
@@ -54,6 +54,11 @@ and a boolean to check if the value has been set.
 
 SetImageId sets ImageId field to given value.
 
+### HasImageId
+
+`func (o *CreateInstanceRequest) HasImageId() bool`
+
+HasImageId returns a boolean if a field has been set.
 
 ### GetProductId
 
@@ -94,6 +99,11 @@ and a boolean to check if the value has been set.
 
 SetRegion sets Region field to given value.
 
+### HasRegion
+
+`func (o *CreateInstanceRequest) HasRegion() bool`
+
+HasRegion returns a boolean if a field has been set.
 
 ### GetSshKeys
 

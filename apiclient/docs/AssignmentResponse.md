@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **string** | Your customer tenant id | 
+**TenantId** | **string** | Your tenant id | 
 **CustomerId** | **string** | Your customer number | 
 **TagId** | **float32** | Tag Identifier | 
 **TagName** | **string** | Name of the Tag | 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **string** | Your customer tenant id | 
+**TenantId** | **string** | Your tenant id | 
 **CustomerId** | **string** | Your customer number | 
 **UsedSpaceTB** | **float64** | Utilized space in Terrabyte. | 
 **UsedSpacePercentage** | **float64** | Utilized space in percentage. | 

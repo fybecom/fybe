@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Email** | **string** | The user&#39;s email address to which activation and forgot password links will be sent. The email field has a limit of 255 characters. | 
 **Enabled** | **bool** | If the user is disabled, they won&#39;t be able to log in and access the services anymore. | 
 **Totp** | **bool** | Toggle the option to use time-based one-time passwords (TOTP) for two-factor authentication (2FA). | 
-**Locale** | **string** | The user&#39;s locale indicates their preferred language and region settings. Accepted values include de-DE, de, en-US, en. | 
+**Locale** | **string** | The user&#39;s locale indicates their preferred language and region settings. Accepted values include en-US, en. | 
 **Roles** | Pointer to **[]int64** | The user&#39;s roles are represented as a list of roleIds. | [optional] 
 
 ## Methods

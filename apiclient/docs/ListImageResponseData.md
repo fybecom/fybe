@@ -20,13 +20,13 @@ Name | Type | Description | Notes
 **StandardImage** | **bool** | Flag for indicating if the image is a standard image (flagged as true) or a custom image (flagged as false) | 
 **CreationDate** | **time.Time** | The date and time when the image was created | 
 **LastModifiedDate** | **time.Time** | The date and time when the image was last modified | 
-**Tags** | [**[]TagResponse**](TagResponse.md) | The labels or keywords that have been associated with the image for purposes such as categorization, organization, or searchability. | 
+**Tags** | [**[]TagResponse1**](TagResponse1.md) | The labels or keywords that have been associated with the image for purposes such as categorization, organization, or searchability. | 
 
 ## Methods
 
 ### NewListImageResponseData
 
-`func NewListImageResponseData(imageId string, tenantId string, customerId string, name string, description string, url string, sizeMb float32, uploadedSizeMb float32, osType string, version string, format string, status string, errorMessage string, standardImage bool, creationDate time.Time, lastModifiedDate time.Time, tags []TagResponse, ) *ListImageResponseData`
+`func NewListImageResponseData(imageId string, tenantId string, customerId string, name string, description string, url string, sizeMb float32, uploadedSizeMb float32, osType string, version string, format string, status string, errorMessage string, standardImage bool, creationDate time.Time, lastModifiedDate time.Time, tags []TagResponse1, ) *ListImageResponseData`
 
 NewListImageResponseData instantiates a new ListImageResponseData object
 This constructor will assign default values to properties that have it defined,
@@ -363,20 +363,20 @@ SetLastModifiedDate sets LastModifiedDate field to given value.
 
 ### GetTags
 
-`func (o *ListImageResponseData) GetTags() []TagResponse`
+`func (o *ListImageResponseData) GetTags() []TagResponse1`
 
 GetTags returns the Tags field if non-nil, zero value otherwise.
 
 ### GetTagsOk
 
-`func (o *ListImageResponseData) GetTagsOk() (*[]TagResponse, bool)`
+`func (o *ListImageResponseData) GetTagsOk() (*[]TagResponse1, bool)`
 
 GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTags
 
-`func (o *ListImageResponseData) SetTags(v []TagResponse)`
+`func (o *ListImageResponseData) SetTags(v []TagResponse1)`
 
 SetTags sets Tags field to given value.
 

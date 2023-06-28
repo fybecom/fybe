@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **string** | Your customer tenant id | 
+**TenantId** | **string** | Your tenant id | 
 **CustomerId** | **string** | Your customer number | 
 **IsPasswordSet** | **bool** | If the user set a passwort for his account this boolean returns true. if no passwort was set it return false. | 
 

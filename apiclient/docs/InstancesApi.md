@@ -109,7 +109,7 @@ import (
 
 func main() {
     xRequestId := "04e0f898-37b4-48bc-a794-1a57abe6aa31" // string | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    createInstanceRequest := *openapiclient.NewCreateInstanceRequest("bb11109f-c473-4a77-87c4-b9644e793827", "V3", "us-east-1", int64(6)) // CreateInstanceRequest | 
+    createInstanceRequest := *openapiclient.NewCreateInstanceRequest("V3", int64(1)) // CreateInstanceRequest | 
     xTraceId := "xTraceId_example" // string | Identifier to trace group of requests. (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -416,7 +416,7 @@ func main() {
     instanceIds := "1000, 1001, 1002" // string | Identifiers of instances separated by commas (optional)
     status := "installing, running" // string | The state of the instance (optional)
     addOnIds := "1044,827" // string | Addons IDs of the instance (optional)
-    productTypes := "ssd, hdd, nvme" // string | Categories of instances, separated by commas, based on the Product ID (optional)
+    productTypes := "ssd, nvme" // string | Categories of instances, separated by commas, based on the ProductId (optional)
     ipConfig := true // bool | Filter instances by ip config. True will return those with the ip config set (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
  **instanceIds** | **string** | Identifiers of instances separated by commas | 
  **status** | **string** | The state of the instance | 
  **addOnIds** | **string** | Addons IDs of the instance | 
- **productTypes** | **string** | Categories of instances, separated by commas, based on the Product ID | 
+ **productTypes** | **string** | Categories of instances, separated by commas, based on the ProductId | 
  **ipConfig** | **bool** | Filter instances by ip config. True will return those with the ip config set | 
 
 ### Return type

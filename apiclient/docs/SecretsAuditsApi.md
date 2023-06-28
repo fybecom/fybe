@@ -4,7 +4,7 @@ All URIs are relative to *https://api.fybe.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RetrieveSecretAuditsList**](SecretsAuditsApi.md#RetrieveSecretAuditsList) | **Get** /v1/secrets/audits | List history about your secrets (audit)
+[**RetrieveSecretAuditsList**](SecretsAuditsApi.md#RetrieveSecretAuditsList) | **Get** /v1/secrets/audits | Display history about your secrets (audit)
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > ListSecretAuditResponse RetrieveSecretAuditsList(ctx).XRequestId(xRequestId).XTraceId(xTraceId).Page(page).Size(size).OrderBy(orderBy).SecretId(secretId).RequestId(requestId).ChangedBy(changedBy).StartDate(startDate).EndDate(endDate).Execute()
 
-List history about your secrets (audit)
+Display history about your secrets (audit)
 
 
 
@@ -35,11 +35,11 @@ func main() {
     page := int64(1) // int64 | Number of page to be fetched. (optional)
     size := int64(10) // int64 | Number of elements per page. (optional)
     orderBy := []string{"Inner_example"} // []string | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    secretId := int64(123) // int64 | The id of the secret. (optional)
-    requestId := "D5FD9FAF-58C0-4406-8F46-F449B8E4FEC3" // string | The requestId of the API call which led to the change. (optional)
-    changedBy := "23cbb6d6-cb11-4330-bdff-7bb791df2e23" // string | changedBy of the user which led to the change. (optional)
-    startDate := time.Now() // string | Start of search time range. (optional)
-    endDate := time.Now() // string | End of search time range. (optional)
+    secretId := int64(444) // int64 | Secret identifier. (optional)
+    requestId := "82690b35-2554-4690-a720-e8f826d20976" // string | The API call's requestId that triggered the modification. (optional)
+    changedBy := "82690b35-2554-4690-a720-e8f826d20976" // string | Identifier of the user who made the change. (optional)
+    startDate := time.Now() // string | The beginning of the time range for the search. (optional)
+    endDate := time.Now() // string | The end date of the time range for the search. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -69,11 +69,11 @@ Name | Type | Description  | Notes
  **page** | **int64** | Number of page to be fetched. | 
  **size** | **int64** | Number of elements per page. | 
  **orderBy** | **[]string** | Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | 
- **secretId** | **int64** | The id of the secret. | 
- **requestId** | **string** | The requestId of the API call which led to the change. | 
- **changedBy** | **string** | changedBy of the user which led to the change. | 
- **startDate** | **string** | Start of search time range. | 
- **endDate** | **string** | End of search time range. | 
+ **secretId** | **int64** | Secret identifier. | 
+ **requestId** | **string** | The API call&#39;s requestId that triggered the modification. | 
+ **changedBy** | **string** | Identifier of the user who made the change. | 
+ **startDate** | **string** | The beginning of the time range for the search. | 
+ **endDate** | **string** | The end date of the time range for the search. | 
 
 ### Return type
 

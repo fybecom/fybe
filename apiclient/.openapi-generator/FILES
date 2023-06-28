@@ -11,8 +11,6 @@ api_instances.go
 api_instances_audits.go
 api_object_storages.go
 api_object_storages_audits.go
-api_private_networks.go
-api_private_networks_audits.go
 api_roles.go
 api_roles_audits.go
 api_secrets.go
@@ -23,6 +21,8 @@ api_tags.go
 api_tags_audits.go
 api_users.go
 api_users_audits.go
+api_virtual_private_cloud_audits.go
+api_virtual_private_cloud_vpc.go
 client.go
 configuration.go
 docs/AddOnRequest.md
@@ -173,8 +173,6 @@ docs/PermissionResponse.md
 docs/PrivateIpConfig.md
 docs/PrivateNetworkAuditResponse.md
 docs/PrivateNetworkResponse.md
-docs/PrivateNetworksApi.md
-docs/PrivateNetworksAuditsApi.md
 docs/ReinstallInstanceRequest.md
 docs/ReinstallInstanceResponse.md
 docs/ReinstallInstanceResponseData.md
@@ -223,6 +221,8 @@ docs/UserIsPasswordSetResponse.md
 docs/UserResponse.md
 docs/UsersApi.md
 docs/UsersAuditsApi.md
+docs/VirtualPrivateCloudAuditsApi.md
+docs/VirtualPrivateCloudVPCApi.md
 docs/VncResponse.md
 git_push.sh
 go.mod

@@ -12,11 +12,11 @@ Fybe's OpenAPI Specification can be [downloaded here](https://api.fybe.com/api-v
 
 ## Getting Started
 
-To utilize the Fybe API, you'll require following credentials that can be obtained from from the [Fybe Cockpit](https://cockpit.fybe.com/api/details):
+To utilize the Fybe API, you'll require following credentials that can be obtained from from the [Fybe Cockpit](https://cockpit.fybe.com/account/security):
 1. ClientId
 2. ClientSecret
-3. API User (your email address to login to the [Fybe Cockpit](https://cockpit.fybe.com/api/details))
-4. API Password (this is a new password which you'll set or change in the [Fybe Cockpit](https://cockpit.fybe.com/api/details))
+3. API User (your email address to login to the [Fybe Cockpit](https://cockpit.fybe.com/account/security))
+4. API Password (this is a new password which you'll set or change in the [Fybe Cockpit](https://cockpit.fybe.com/account/security))
 
 ### How to use the API?
 
@@ -26,7 +26,7 @@ As authentication [Bearer Tokens](https://oauth.net/2/bearer-tokens/) in form of
 
 ```sh
 POST /auth/realms/Fybe/protocol/openid-connect/token HTTP/1.1
-Host: auth.fybe.com
+Host: airlock.fybe.com
 
 grant_type=password
 &password=xxxxxx
@@ -36,7 +36,13 @@ grant_type=password
 &client_secret=xxxxxx
 ```
 
-The actual values for `client_id`, `client_secret`, `username` and `password` can be retrieved from [Fybe Cockpit](https://cockpit.fybe.com/api/details))
+The actual values for `client_id`, `client_secret`, `username` and `password` can be retrieved from [Fybe Cockpit](https://cockpit.fybe.com/account/security)
+
+## Using the Command-Line Interface (CLI)
+
+Fybe provides the CLI called `fybe` which can be downloaded from <https://github.com/fybecom/fybe>. Please follow the instructions in the `README.md` to perform the installation on your OS. `fybe` supports Windows, macOS and Linux operating systems.
+
+Using `fybe` CLI invoking makes invoking the API much more comfortable. E.g. `fybe get instances` for retrieving the list of compute instances.
 
 ## Requests
 
@@ -163,10 +169,10 @@ Class | Method | HTTP request | Description
 *ImagesApi* | [**RetrieveImage**](docs/ImagesApi.md#retrieveimage) | **Get** /v1/compute/images/{imageId} | Obtain information regarding a particular image based on its id.
 *ImagesApi* | [**RetrieveImageList**](docs/ImagesApi.md#retrieveimagelist) | **Get** /v1/compute/images | Provide a list of both standard and custom images that are available
 *ImagesApi* | [**UpdateImage**](docs/ImagesApi.md#updateimage) | **Patch** /v1/compute/images/{imageId} | Modify the name of a custom image by its id
-*ImagesAuditsApi* | [**RetrieveImageAuditsList**](docs/ImagesAuditsApi.md#retrieveimageauditslist) | **Get** /v1/compute/images/audits | Retrieve a list of your custom images history.
+*ImagesAuditsApi* | [**RetrieveImageAuditsList**](docs/ImagesAuditsApi.md#retrieveimageauditslist) | **Get** /v1/compute/images/audits | Retrieve a list of your custom images history
 *InstanceActionsApi* | [**Rescue**](docs/InstanceActionsApi.md#rescue) | **Post** /v1/compute/instances/{instanceId}/actions/rescue | Rescue a compute instance / resource identified by its id
 *InstanceActionsApi* | [**ResetPasswordAction**](docs/InstanceActionsApi.md#resetpasswordaction) | **Post** /v1/compute/instances/{instanceId}/actions/resetPassword | Reset password for a compute instance / resource referenced by an id
-*InstanceActionsApi* | [**Restart**](docs/InstanceActionsApi.md#restart) | **Post** /v1/compute/instances/{instanceId}/actions/restart | Retrieve a list of your custom images history.
+*InstanceActionsApi* | [**Restart**](docs/InstanceActionsApi.md#restart) | **Post** /v1/compute/instances/{instanceId}/actions/restart | Retrieve a list of your custom images history
 *InstanceActionsApi* | [**Shutdown**](docs/InstanceActionsApi.md#shutdown) | **Post** /v1/compute/instances/{instanceId}/actions/shutdown | Shutdown compute instance / resource by its id
 *InstanceActionsApi* | [**Start**](docs/InstanceActionsApi.md#start) | **Post** /v1/compute/instances/{instanceId}/actions/start | Start a compute instance / resource identified by its id
 *InstanceActionsApi* | [**Stop**](docs/InstanceActionsApi.md#stop) | **Post** /v1/compute/instances/{instanceId}/actions/stop | Stop compute instance / resource by its id
@@ -177,7 +183,7 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**ReinstallInstance**](docs/InstancesApi.md#reinstallinstance) | **Put** /v1/compute/instances/{instanceId} | Reinstall specific instance
 *InstancesApi* | [**RetrieveInstance**](docs/InstancesApi.md#retrieveinstance) | **Get** /v1/compute/instances/{instanceId} | Get specific instance by id
 *InstancesApi* | [**RetrieveInstancesList**](docs/InstancesApi.md#retrieveinstanceslist) | **Get** /v1/compute/instances | List of instances
-*InstancesAuditsApi* | [**RetrieveInstancesAuditsList**](docs/InstancesAuditsApi.md#retrieveinstancesauditslist) | **Get** /v1/compute/instances/audits | Retrieve a list of your custom images history.
+*InstancesAuditsApi* | [**RetrieveInstancesAuditsList**](docs/InstancesAuditsApi.md#retrieveinstancesauditslist) | **Get** /v1/compute/instances/audits | Retrieve a list of your custom images history
 *ObjectStoragesApi* | [**CancelObjectStorage**](docs/ObjectStoragesApi.md#cancelobjectstorage) | **Patch** /v1/object-storages/{objectStorageId}/cancel | Cancels the selected object storage at the next possible date
 *ObjectStoragesApi* | [**CreateObjectStorage**](docs/ObjectStoragesApi.md#createobjectstorage) | **Post** /v1/object-storages | Create a new object storage
 *ObjectStoragesApi* | [**RetrieveDataCenterList**](docs/ObjectStoragesApi.md#retrievedatacenterlist) | **Get** /v1/data-centers | List all data centers
@@ -187,14 +193,6 @@ Class | Method | HTTP request | Description
 *ObjectStoragesApi* | [**UpdateObjectStorage**](docs/ObjectStoragesApi.md#updateobjectstorage) | **Patch** /v1/object-storages/{objectStorageId} | Updates the display name of object storage
 *ObjectStoragesApi* | [**UpgradeObjectStorage**](docs/ObjectStoragesApi.md#upgradeobjectstorage) | **Post** /v1/object-storages/{objectStorageId}/resize | Upgrade object storage size / update autoscaling settings.
 *ObjectStoragesAuditsApi* | [**RetrieveObjectStorageAuditsList**](docs/ObjectStoragesAuditsApi.md#retrieveobjectstorageauditslist) | **Get** /v1/object-storages/audits | List history about your object storages
-*PrivateNetworksApi* | [**AssignInstancePrivateNetwork**](docs/PrivateNetworksApi.md#assigninstanceprivatenetwork) | **Post** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a Virtual Private Cloud
-*PrivateNetworksApi* | [**CreatePrivateNetwork**](docs/PrivateNetworksApi.md#createprivatenetwork) | **Post** /v1/private-networks | Create a new Virtual Private Cloud
-*PrivateNetworksApi* | [**DeletePrivateNetwork**](docs/PrivateNetworksApi.md#deleteprivatenetwork) | **Delete** /v1/private-networks/{privateNetworkId} | Delete the virtual private cloud with the given id
-*PrivateNetworksApi* | [**PatchPrivateNetwork**](docs/PrivateNetworksApi.md#patchprivatenetwork) | **Patch** /v1/private-networks/{privateNetworkId} | Update a Virtual Private Cloud by its id
-*PrivateNetworksApi* | [**RetrievePrivateNetwork**](docs/PrivateNetworksApi.md#retrieveprivatenetwork) | **Get** /v1/private-networks/{privateNetworkId} | Get specific Virtual Private Cloud by its id
-*PrivateNetworksApi* | [**RetrievePrivateNetworkList**](docs/PrivateNetworksApi.md#retrieveprivatenetworklist) | **Get** /v1/private-networks | List all Virtual Private Clouds
-*PrivateNetworksApi* | [**UnassignInstancePrivateNetwork**](docs/PrivateNetworksApi.md#unassigninstanceprivatenetwork) | **Delete** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove particular instance from a Virtual Private Cloud
-*PrivateNetworksAuditsApi* | [**RetrievePrivateNetworkAuditsList**](docs/PrivateNetworksAuditsApi.md#retrieveprivatenetworkauditslist) | **Get** /v1/private-networks/audits | Displays a history of your Virtual Private Clouds (audit)
 *RolesApi* | [**CreateRole**](docs/RolesApi.md#createrole) | **Post** /v1/roles | Create a role
 *RolesApi* | [**DeleteRole**](docs/RolesApi.md#deleterole) | **Delete** /v1/roles/{roleId} | Delete a role
 *RolesApi* | [**RetrieveApiPermissionsList**](docs/RolesApi.md#retrieveapipermissionslist) | **Get** /v1/roles/api-permissions | API permissions list
@@ -203,11 +201,11 @@ Class | Method | HTTP request | Description
 *RolesApi* | [**UpdateRole**](docs/RolesApi.md#updaterole) | **Put** /v1/roles/{roleId} | Update a role
 *RolesAuditsApi* | [**RetrieveRoleAuditsList**](docs/RolesAuditsApi.md#retrieveroleauditslist) | **Get** /v1/roles/audits | Retrieve the audit history of your roles.
 *SecretsApi* | [**CreateSecret**](docs/SecretsApi.md#createsecret) | **Post** /v1/secrets | Create a new secret
-*SecretsApi* | [**DeleteSecret**](docs/SecretsApi.md#deletesecret) | **Delete** /v1/secrets/{secretId} | Delete existing secret by id
+*SecretsApi* | [**DeleteSecret**](docs/SecretsApi.md#deletesecret) | **Delete** /v1/secrets/{secretId} | Delete existing secret by its identifier
 *SecretsApi* | [**RetrieveSecret**](docs/SecretsApi.md#retrievesecret) | **Get** /v1/secrets/{secretId} | Get specific secret by id
-*SecretsApi* | [**RetrieveSecretList**](docs/SecretsApi.md#retrievesecretlist) | **Get** /v1/secrets | List secrets
-*SecretsApi* | [**UpdateSecret**](docs/SecretsApi.md#updatesecret) | **Patch** /v1/secrets/{secretId} | Update specific secret by id
-*SecretsAuditsApi* | [**RetrieveSecretAuditsList**](docs/SecretsAuditsApi.md#retrievesecretauditslist) | **Get** /v1/secrets/audits | List history about your secrets (audit)
+*SecretsApi* | [**RetrieveSecretList**](docs/SecretsApi.md#retrievesecretlist) | **Get** /v1/secrets | Show secrets
+*SecretsApi* | [**UpdateSecret**](docs/SecretsApi.md#updatesecret) | **Patch** /v1/secrets/{secretId} | Update specific secret by its identifier
+*SecretsAuditsApi* | [**RetrieveSecretAuditsList**](docs/SecretsAuditsApi.md#retrievesecretauditslist) | **Get** /v1/secrets/audits | Display history about your secrets (audit)
 *TagAssignmentsApi* | [**CreateAssignment**](docs/TagAssignmentsApi.md#createassignment) | **Post** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Create a new tag assignment
 *TagAssignmentsApi* | [**DeleteAssignment**](docs/TagAssignmentsApi.md#deleteassignment) | **Delete** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Delete tag assignment
 *TagAssignmentsApi* | [**RetrieveAssignment**](docs/TagAssignmentsApi.md#retrieveassignment) | **Get** /v1/tags/{tagId}/assignments/{resourceType}/{resourceId} | Get particular assignment for the tag
@@ -232,6 +230,14 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**RetrieveUserList**](docs/UsersApi.md#retrieveuserlist) | **Get** /v1/users | User List
 *UsersApi* | [**UpdateUser**](docs/UsersApi.md#updateuser) | **Patch** /v1/users/{userId} | Update User.
 *UsersAuditsApi* | [**RetrieveUserAuditsList**](docs/UsersAuditsApi.md#retrieveuserauditslist) | **Get** /v1/users/audits | Retrieve the audit history of your users.
+*VirtualPrivateCloudAuditsApi* | [**RetrievePrivateNetworkAuditsList**](docs/VirtualPrivateCloudAuditsApi.md#retrieveprivatenetworkauditslist) | **Get** /v1/private-networks/audits | List history of your VPCs (audit)
+*VirtualPrivateCloudVPCApi* | [**AssignInstancePrivateNetwork**](docs/VirtualPrivateCloudVPCApi.md#assigninstanceprivatenetwork) | **Post** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Add instance to a Virtual Private Cloud
+*VirtualPrivateCloudVPCApi* | [**CreatePrivateNetwork**](docs/VirtualPrivateCloudVPCApi.md#createprivatenetwork) | **Post** /v1/private-networks | Create a new Virtual Private Cloud
+*VirtualPrivateCloudVPCApi* | [**DeletePrivateNetwork**](docs/VirtualPrivateCloudVPCApi.md#deleteprivatenetwork) | **Delete** /v1/private-networks/{privateNetworkId} | Delete the virtual private cloud with the given id
+*VirtualPrivateCloudVPCApi* | [**PatchPrivateNetwork**](docs/VirtualPrivateCloudVPCApi.md#patchprivatenetwork) | **Patch** /v1/private-networks/{privateNetworkId} | Update a Virtual Private Cloud by its id
+*VirtualPrivateCloudVPCApi* | [**RetrievePrivateNetwork**](docs/VirtualPrivateCloudVPCApi.md#retrieveprivatenetwork) | **Get** /v1/private-networks/{privateNetworkId} | Get specific Virtual Private Cloud by its id
+*VirtualPrivateCloudVPCApi* | [**RetrievePrivateNetworkList**](docs/VirtualPrivateCloudVPCApi.md#retrieveprivatenetworklist) | **Get** /v1/private-networks | List all Virtual Private Clouds
+*VirtualPrivateCloudVPCApi* | [**UnassignInstancePrivateNetwork**](docs/VirtualPrivateCloudVPCApi.md#unassigninstanceprivatenetwork) | **Delete** /v1/private-networks/{privateNetworkId}/instances/{instanceId} | Remove particular instance from a Virtual Private Cloud
 
 
 ## Documentation For Models

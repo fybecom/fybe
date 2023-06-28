@@ -5,10 +5,10 @@ All URIs are relative to *https://api.fybe.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateSecret**](SecretsApi.md#CreateSecret) | **Post** /v1/secrets | Create a new secret
-[**DeleteSecret**](SecretsApi.md#DeleteSecret) | **Delete** /v1/secrets/{secretId} | Delete existing secret by id
+[**DeleteSecret**](SecretsApi.md#DeleteSecret) | **Delete** /v1/secrets/{secretId} | Delete existing secret by its identifier
 [**RetrieveSecret**](SecretsApi.md#RetrieveSecret) | **Get** /v1/secrets/{secretId} | Get specific secret by id
-[**RetrieveSecretList**](SecretsApi.md#RetrieveSecretList) | **Get** /v1/secrets | List secrets
-[**UpdateSecret**](SecretsApi.md#UpdateSecret) | **Patch** /v1/secrets/{secretId} | Update specific secret by id
+[**RetrieveSecretList**](SecretsApi.md#RetrieveSecretList) | **Get** /v1/secrets | Show secrets
+[**UpdateSecret**](SecretsApi.md#UpdateSecret) | **Patch** /v1/secrets/{secretId} | Update specific secret by its identifier
 
 
 
@@ -34,7 +34,7 @@ import (
 
 func main() {
     xRequestId := "04e0f898-37b4-48bc-a794-1a57abe6aa31" // string | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    createSecretRequest := *openapiclient.NewCreateSecretRequest("my-password", "Value_example", "password") // CreateSecretRequest | 
+    createSecretRequest := *openapiclient.NewCreateSecretRequest("password-name-123", "Rand@12Dom3?", "password") // CreateSecretRequest | 
     xTraceId := "xTraceId_example" // string | Identifier to trace group of requests. (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 > DeleteSecret(ctx, secretId).XRequestId(xRequestId).XTraceId(xTraceId).Execute()
 
-Delete existing secret by id
+Delete existing secret by its identifier
 
 
 
@@ -104,7 +104,7 @@ import (
 
 func main() {
     xRequestId := "04e0f898-37b4-48bc-a794-1a57abe6aa31" // string | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    secretId := int64(123) // int64 | The id of the secret
+    secretId := int64(555) // int64 | Secret ID
     xTraceId := "xTraceId_example" // string | Identifier to trace group of requests. (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -123,7 +123,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**secretId** | **int64** | The id of the secret | 
+**secretId** | **int64** | Secret ID | 
 
 ### Other Parameters
 
@@ -176,7 +176,7 @@ import (
 
 func main() {
     xRequestId := "04e0f898-37b4-48bc-a794-1a57abe6aa31" // string | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    secretId := int64(123) // int64 | The id of the secret
+    secretId := int64(555) // int64 | Secret ID
     xTraceId := "xTraceId_example" // string | Identifier to trace group of requests. (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -197,7 +197,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**secretId** | **int64** | The id of the secret | 
+**secretId** | **int64** | Secret ID | 
 
 ### Other Parameters
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 > ListSecretResponse RetrieveSecretList(ctx).XRequestId(xRequestId).XTraceId(xTraceId).Page(page).Size(size).OrderBy(orderBy).Name(name).Type_(type_).Execute()
 
-List secrets
+Show secrets
 
 
 
@@ -254,7 +254,7 @@ func main() {
     page := int64(1) // int64 | Number of page to be fetched. (optional)
     size := int64(10) // int64 | Number of elements per page. (optional)
     orderBy := []string{"Inner_example"} // []string | Specify fields and ordering (ASC for ascending, DESC for descending) in following format `field:ASC|DESC`. (optional)
-    name := "mysecret" // string | Filter secrets by name (optional)
+    name := "helloMySecret" // string | Secrets (can be filtered by their name). (optional)
     type_ := "type__example" // string | Filter secrets by type (optional)
 
     configuration := openapiclient.NewConfiguration()
@@ -285,7 +285,7 @@ Name | Type | Description  | Notes
  **page** | **int64** | Number of page to be fetched. | 
  **size** | **int64** | Number of elements per page. | 
  **orderBy** | **[]string** | Specify fields and ordering (ASC for ascending, DESC for descending) in following format &#x60;field:ASC|DESC&#x60;. | 
- **name** | **string** | Filter secrets by name | 
+ **name** | **string** | Secrets (can be filtered by their name). | 
  **type_** | **string** | Filter secrets by type | 
 
 ### Return type
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 > UpdateSecretResponse UpdateSecret(ctx, secretId).XRequestId(xRequestId).UpdateSecretRequest(updateSecretRequest).XTraceId(xTraceId).Execute()
 
-Update specific secret by id
+Update specific secret by its identifier
 
 
 
@@ -328,7 +328,7 @@ import (
 
 func main() {
     xRequestId := "04e0f898-37b4-48bc-a794-1a57abe6aa31" // string | [Uuid4](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)) to identify individual requests for support cases. You can use [uuidgenerator](https://www.uuidgenerator.net/version4) to generate them manually.
-    secretId := int64(123) // int64 | The id of the secret
+    secretId := int64(555) // int64 | Secret ID
     updateSecretRequest := *openapiclient.NewUpdateSecretRequest() // UpdateSecretRequest | 
     xTraceId := "xTraceId_example" // string | Identifier to trace group of requests. (optional)
 
@@ -350,7 +350,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**secretId** | **int64** | The id of the secret | 
+**secretId** | **int64** | Secret ID | 
 
 ### Other Parameters
 

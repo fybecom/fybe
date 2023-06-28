@@ -4,14 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TagId** | **float32** | Tag identifier | 
-**TagName** | **string** | The name of tag | 
+**TenantId** | **string** | Your tenant id | 
+**CustomerId** | **string** | Your customer number | 
+**TagId** | **float32** | Identifier of the tag | 
+**Name** | **string** | Name of the Tag | 
+**Color** | **string** | Color of the tag | 
 
 ## Methods
 
 ### NewTagResponse
 
-`func NewTagResponse(tagId float32, tagName string, ) *TagResponse`
+`func NewTagResponse(tenantId string, customerId string, tagId float32, name string, color string, ) *TagResponse`
 
 NewTagResponse instantiates a new TagResponse object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +28,46 @@ will change when the set of required properties is changed
 NewTagResponseWithDefaults instantiates a new TagResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetTenantId
+
+`func (o *TagResponse) GetTenantId() string`
+
+GetTenantId returns the TenantId field if non-nil, zero value otherwise.
+
+### GetTenantIdOk
+
+`func (o *TagResponse) GetTenantIdOk() (*string, bool)`
+
+GetTenantIdOk returns a tuple with the TenantId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTenantId
+
+`func (o *TagResponse) SetTenantId(v string)`
+
+SetTenantId sets TenantId field to given value.
+
+
+### GetCustomerId
+
+`func (o *TagResponse) GetCustomerId() string`
+
+GetCustomerId returns the CustomerId field if non-nil, zero value otherwise.
+
+### GetCustomerIdOk
+
+`func (o *TagResponse) GetCustomerIdOk() (*string, bool)`
+
+GetCustomerIdOk returns a tuple with the CustomerId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomerId
+
+`func (o *TagResponse) SetCustomerId(v string)`
+
+SetCustomerId sets CustomerId field to given value.
+
 
 ### GetTagId
 
@@ -46,24 +89,44 @@ and a boolean to check if the value has been set.
 SetTagId sets TagId field to given value.
 
 
-### GetTagName
+### GetName
 
-`func (o *TagResponse) GetTagName() string`
+`func (o *TagResponse) GetName() string`
 
-GetTagName returns the TagName field if non-nil, zero value otherwise.
+GetName returns the Name field if non-nil, zero value otherwise.
 
-### GetTagNameOk
+### GetNameOk
 
-`func (o *TagResponse) GetTagNameOk() (*string, bool)`
+`func (o *TagResponse) GetNameOk() (*string, bool)`
 
-GetTagNameOk returns a tuple with the TagName field if it's non-nil, zero value otherwise
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTagName
+### SetName
 
-`func (o *TagResponse) SetTagName(v string)`
+`func (o *TagResponse) SetName(v string)`
 
-SetTagName sets TagName field to given value.
+SetName sets Name field to given value.
+
+
+### GetColor
+
+`func (o *TagResponse) GetColor() string`
+
+GetColor returns the Color field if non-nil, zero value otherwise.
+
+### GetColorOk
+
+`func (o *TagResponse) GetColorOk() (*string, bool)`
+
+GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColor
+
+`func (o *TagResponse) SetColor(v string)`
+
+SetColor sets Color field to given value.
 
 
 

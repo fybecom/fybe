@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **string** | Your customer tenant id | 
-**CustomerId** | **string** | Your customer number | 
-**SecretId** | **float32** | Secret&#39;s id | 
-**Name** | **string** | The name assigned to the password/ssh | 
-**Type** | **string** | The type of the secret. This will be available only when retrieving secrets | 
-**Value** | **string** | The value of the secret. This will be available only when retrieving a single secret | 
-**CreatedAt** | **time.Time** | The creation date for the secret | 
-**UpdatedAt** | **time.Time** | The last update date for the secret | 
+**TenantId** | **string** | Tenant ID of your Customer | 
+**CustomerId** | **string** | Your Customer number | 
+**SecretId** | **float32** | Secret Identifier | 
+**Name** | **string** | Customer assigned name to the password/ssh | 
+**Type** | **string** | Type of the secret which can only be obtained when retrieving secrets. | 
+**Value** | **string** | The value of the secret which is only available when retrieving a single secret | 
+**CreatedAt** | **time.Time** | Creation date of the secret | 
+**UpdatedAt** | **time.Time** | Timestamp of last update for the secret | 
 
 ## Methods
 

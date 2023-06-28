@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ip** | **string** | IP Address | 
-**NetmaskCidr** | **int32** | Netmask Classless Inter-Domain Routing | 
+**NetmaskCidr** | **int32** | Netmask CIDR | 
 **Gateway** | **string** | Gateway | 
 
 ## Methods

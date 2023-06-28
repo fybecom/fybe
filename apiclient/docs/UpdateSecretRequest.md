@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | The name of the secret to be saved | [optional] 
-**Value** | Pointer to **string** | The value of the secret to be saved | [optional] 
+**Name** | Pointer to **string** | The secret&#39;s name to be saved. | [optional] 
+**Value** | Pointer to **string** | The secret&#39;s value to be saved. | [optional] 
 
 ## Methods
 

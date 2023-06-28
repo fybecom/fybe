@@ -4,7 +4,7 @@ All URIs are relative to *https://api.fybe.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RetrieveImageAuditsList**](ImagesAuditsApi.md#RetrieveImageAuditsList) | **Get** /v1/compute/images/audits | Retrieve a list of your custom images history.
+[**RetrieveImageAuditsList**](ImagesAuditsApi.md#RetrieveImageAuditsList) | **Get** /v1/compute/images/audits | Retrieve a list of your custom images history
 
 
 
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 > ImageAuditResponse RetrieveImageAuditsList(ctx).XRequestId(xRequestId).XTraceId(xTraceId).Page(page).Size(size).OrderBy(orderBy).ImageId(imageId).RequestId(requestId).ChangedBy(changedBy).StartDate(startDate).EndDate(endDate).Execute()
 
-Retrieve a list of your custom images history.
+Retrieve a list of your custom images history
 
 
 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The name of the secret that will keep the password | 
-**Value** | **string** | The secret value that needs to be saved. In case of a password it must match a pattern with at least one upper and lower case character and either one number with two special characters &#x60;!@#$^&amp;*?_~&#x60; or at least three numbers with one special character &#x60;!@#$^&amp;*?_~&#x60;. This is expressed in the following regular expression: &#x60;^((?&#x3D;.*?[A-Z]{1,})(?&#x3D;.*?[a-z]{1,}))(((?&#x3D;(?:[^d]*d){1})(?&#x3D;([^^&amp;*?_~]*[!@#$^&amp;*?_~]){2,}))|((?&#x3D;(?:[^d]*d){3})(?&#x3D;.*?[!@#$^&amp;*?_~]+))).{8,}$&#x60; | 
-**Type** | **string** | The type of the secret. Can be &#x60;password&#x60; or &#x60;ssh&#x60; | 
+**Name** | **string** | The secret&#39;s name that will serve as the password safeguard. | 
+**Value** | **string** | The value of the secret that requires preservation, such as a password, must conform to a specific pattern. The pattern necessitates at least one uppercase and lowercase letter, along with either one number and two special characters &#x60;!@#$^&amp;*?_~&#x60; or a minimum of three numbers and one special character &#x60;!@#$^&amp;*?_~&#x60;. The pattern for the secret is represented by the subsequent regular expression:\&quot;: &#x60;^((?&#x3D;.*?[A-Z]{1,})(?&#x3D;.*?[a-z]{1,}))(((?&#x3D;(?:[^d]*d){1})(?&#x3D;([^^&amp;*?_~]*[!@#$^&amp;*?_~]){2,}))|((?&#x3D;(?:[^d]*d){3})(?&#x3D;.*?[!@#$^&amp;*?_~]+))).{8,}$&#x60; | 
+**Type** | **string** | Type of the secret (&#x60;password&#x60; or &#x60;ssh&#x60;). | 
 
 ## Methods
 

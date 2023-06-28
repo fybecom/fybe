@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TenantId** | **string** | Your customer tenant id | 
+**TenantId** | **string** | Your tenant id | 
 **CustomerId** | **string** | Your customer number | 
 **ObjectStorageId** | **string** | Object Storage Identifier | 
 **CreatedDate** | **string** | Creation date of the object storage. | 
