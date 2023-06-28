@@ -36,7 +36,7 @@ jobs:
         id: go
 
       - name: Get dependecies
-        run: go mod tidy && go mod download
+        run: go mod download && go mod tidy && go mod verify
 
       - name: Build fybe cli 
         run: go build
