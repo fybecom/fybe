@@ -29,8 +29,8 @@ var vpcGetCmd = &cobra.Command{
 		responseJson, _ := mapInstancesToIds(resp.Data)
 
 		configFormatter := outputFormatter.FormatterConfig{
-			Filter:     []string{"vpcId", "name", "description", "region", "dataCenter"},
-			WideFilter: []string{"vpcId", "name", "description", "region", "dataCenter", "cidr", "availableIps", "instances"},
+			Filter:     []string{"vpcId", "name", "description", "regionName", "dataCenter"},
+			WideFilter: []string{"vpcId", "name", "description", "regionName", "dataCenter", "cidr", "availableIps", "instances"},
 			JsonPath:   cliCmd.OutputFormatDetails,
 		}
 
