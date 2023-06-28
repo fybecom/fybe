@@ -87,8 +87,7 @@ go mod tidy && go mod download && go build -ldflags="-w -s"
 4. Update apiclient (requires docker / podman)
 
 ```sh
-rm -rf apiclient
-docker run --rm -v "${PWD}:/local" --env JAVA_OPTS='-Dio.swagger.parser.util.RemoteUrl.trustAll=true -Dio.swagger.v3.parser.util.RemoteUrl.trustAll=true' openapitools/openapi-generator-cli:v5.2.1 generate --skip-validate-spec --input-spec 'https://api.fybe.com/api-v1.yaml' --generator-name go --output /local/apiclient
+rm -rf apiclient; docker run --rm -v "${PWD}:/local" --env JAVA_OPTS='-Dio.swagger.parser.util.RemoteUrl.trustAll=true -Dio.swagger.v3.parser.util.RemoteUrl.trustAll=true' openapitools/openapi-generator-cli:v5.2.1 generate --skip-validate-spec --input-spec 'https://api.fybe.com/api-v1.yaml' --generator-name go --output /local/apiclient
 ```
 
 ## Files used by `fybe`
