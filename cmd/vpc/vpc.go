@@ -9,7 +9,7 @@ import (
 )
 
 type PrivateNetwork struct {
-	vpcId        int64    `json:"privateNetworkId"`
+	VpcId        int64    `json:"vpcId"`
 	Name         string   `json:"name"`
 	Description  string   `json:"description"`
 	RegionName   string   `json:"regionName"`
@@ -20,7 +20,7 @@ type PrivateNetwork struct {
 }
 
 func SetVpc(
-	vpcId int64,
+	VpcId int64,
 	Name string,
 	Description string,
 	RegionName string,
@@ -28,7 +28,7 @@ func SetVpc(
 	Cidr string,
 	AvailableIps int64) *PrivateNetwork {
 	vpc := new(PrivateNetwork)
-	vpc.vpcId = vpcId
+	vpc.VpcId = VpcId
 	vpc.Name = Name
 	vpc.Description = Description
 	vpc.RegionName = RegionName
