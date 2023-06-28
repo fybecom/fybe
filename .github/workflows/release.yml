@@ -29,34 +29,21 @@ jobs:
       - name: Unshallow
         run: git fetch --prune --unshallow
 
+      # module does getting of dependencies
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
           go-version: '1.20'
         id: go
 
-      - name: Debug
-        run: |
-          pwd
-          go version
-          echo ${HOME}
-          echo ${GITHUB_WORKSPACE}
-          echo ${GOPATH}
-          echo ${GOROOT}
-
-      # - name: Get dependecies
-      #   run: go get .
-
       - name: Build fybe cli 
         run: go build
-        # env:
-        #   GOPATH: ${GITHUB_WORKSPACE}
 
       - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2.9.1
+        uses: goreleaser/goreleaser-action@v4
         with:
           version: latest
-          args: release --rm-dist
+          args: release --clean
         env:
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
           # GitHub sets this automatically
