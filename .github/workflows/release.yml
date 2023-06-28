@@ -35,8 +35,8 @@ jobs:
           go-version: 1.20
         id: go
 
-      # - name: asd
-      #   run: echo $GOROOT && echo $GOPATH
+      - name: asd
+        run: echo $GOROOT && echo $GOPATH
 
       # - name: Get dependecies
       #   run: go get .
