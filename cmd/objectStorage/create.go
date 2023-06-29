@@ -29,7 +29,7 @@ var objectStorageCreateCmd = &cobra.Command{
 		case nil:
 
 			// If we dont set createScalingLimit on a disabled scaling state we recieve an error 
-			if createScalingState == "disabled" && createScalingLimitTB == nil {
+			if createScalingState == "disabled" && createScalingLimitTB == 0 {
 				createScalingLimitTB = 1.00
 			}
 
