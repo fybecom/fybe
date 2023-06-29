@@ -28,7 +28,10 @@ var objectStorageCreateCmd = &cobra.Command{
 		switch content {
 		case nil:
 
-			// from arguments
+			// If we dont set createScalingLimit on a disabled scaling state we recieve an error 
+			if createScalingState == "disabled" && createScalingLimitTB == nil {
+				createScalingLimitTB = 1.00
+			}
 
 			autoScaling := objectStoragesClient.AutoScalingTypeRequest{
 				State:       createScalingState,
