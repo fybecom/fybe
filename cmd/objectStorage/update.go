@@ -20,6 +20,7 @@ var ObjectStorageUpdateCmd = &cobra.Command{
 	Use:   "objectStorage [objectStorageId]",
 	Short: "Updates a specific objectStorage display name",
 	Long:  `Updates the specific objectStorage by setting new values either by file input or flags / environment variables`,
+	Example: `fybe update objectStorage 59168615-1683-4d72-a950-f1e029b6e51a --displayName BackupStorageUnitedStatesCentral`,
 	Run: func(cmd *cobra.Command, args []string) {
 		updateObjectStorageDisplayNameRequest := *objectStorageClient.NewPatchObjectStorageRequestWithDefaults()
 

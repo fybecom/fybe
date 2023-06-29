@@ -20,6 +20,7 @@ var objectStorageCreateCmd = &cobra.Command{
 	Use:   "objectStorage",
 	Short: "Creates a new objectStorage.",
 	Long:  `Creates a new objectStorage based on json / yaml input or arguments.`,
+	Example: `fybe create objectStorage --region us-central-1 --displayName example --totalPurchasedSpaceTB 1.00 --scalingState enabled --scalingLimitTB 1.00`,
 	Run: func(cmd *cobra.Command, args []string) {
 		createObjectStorageRequest := *objectStoragesClient.NewCreateObjectStorageRequestWithDefaults()
 		content := cliCmd.OpenStdinOrFile()
