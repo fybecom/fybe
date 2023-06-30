@@ -63,6 +63,16 @@ var createBucketCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
+		allBuckets, err := client.ListBuckets(
+			context.Background(),
+		)
+
+		for _, bucket := range allBuckets {
+			if bucket.Name == createBucketName {
+				log.Fatal("Bucket with name " + createBucketName + " already exists")
+			}
+		}
+
 		err = client.MakeBucket(
 			context.Background(),
 			createBucketName,
