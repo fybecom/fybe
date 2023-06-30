@@ -17,9 +17,9 @@ import (
 )
 
 var objectStorageCreateCmd = &cobra.Command{
-	Use:   "objectStorage",
-	Short: "Creates a new objectStorage.",
-	Long:  `Creates a new objectStorage based on json / yaml input or arguments.`,
+	Use:     "objectStorage",
+	Short:   "Creates a new objectStorage.",
+	Long:    `Creates a new objectStorage based on json / yaml input or arguments.`,
 	Example: `fybe create objectStorage --region us-central-1 --displayName example --totalPurchasedSpaceTB 1.00 --scalingState enabled --scalingLimitTB 1.00`,
 	Run: func(cmd *cobra.Command, args []string) {
 		createObjectStorageRequest := *objectStoragesClient.NewCreateObjectStorageRequestWithDefaults()
@@ -28,14 +28,12 @@ var objectStorageCreateCmd = &cobra.Command{
 		switch content {
 		case nil:
 
-			// If we dont set createScalingLimit on a disabled scaling state we recieve an error 
-			if createScalingState == "disabled" && createScalingLimitTB == 0 {
-				createScalingLimitTB = 1.00
-			}
-
-			autoScaling := objectStoragesClient.AutoScalingTypeRequest{
-				State:       createScalingState,
-				SizeLimitTB: createScalingLimitTB,
+			var autoScaling objectStoragesClient.AutoScalingTypeRequest
+			if createScalingState != "" && createScalingLimitTB != 0 {
+				autoScaling = objectStoragesClient.AutoScalingTypeRequest{
+					State:       createScalingState,
+					SizeLimitTB: createScalingLimitTB,
+				}
 			}
 
 			createObjectStorageRequest.DisplayName = &createdisplayName
