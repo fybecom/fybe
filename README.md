@@ -99,4 +99,7 @@ rm -rf apiclient; docker run --rm -v "${PWD}:/local" --env JAVA_OPTS='-Dio.swagg
 
 ## License
 
+
+
+
 GNU GENERAL PUBLIC LICENSE, Version 3
