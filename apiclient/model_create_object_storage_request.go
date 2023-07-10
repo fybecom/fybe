@@ -17,7 +17,7 @@ import (
 
 // CreateObjectStorageRequest struct for CreateObjectStorageRequest
 type CreateObjectStorageRequest struct {
-	// Location of object storage. Available regions: EU, US-central, SIN
+	// Location of object storage. Available regions: us-central-1, eu-central-1, ap-southeast-1
 	Region string `json:"region"`
 	// Autoscaling settings
 	AutoScaling *AutoScalingTypeRequest `json:"autoScaling,omitempty"`
@@ -43,8 +43,10 @@ func NewCreateObjectStorageRequest(region string, totalPurchasedSpaceTB float64)
 // but it doesn't guarantee that properties required by API are set
 func NewCreateObjectStorageRequestWithDefaults() *CreateObjectStorageRequest {
 	this := CreateObjectStorageRequest{}
-	var region string = "EU"
+	var region string = "us-central-1"
 	this.Region = region
+	var totalPurchasedSpaceTB float64 = 1
+	this.TotalPurchasedSpaceTB = totalPurchasedSpaceTB
 	return &this
 }
 

@@ -291,7 +291,6 @@ Class | Method | HTTP request | Description
  - [CustomImagesStatsResponse](docs/CustomImagesStatsResponse.md)
  - [CustomImagesStatsResponseData](docs/CustomImagesStatsResponseData.md)
  - [DataCenterResponse](docs/DataCenterResponse.md)
- - [DatacenterCapabilities](docs/DatacenterCapabilities.md)
  - [ExtraStorageRequest](docs/ExtraStorageRequest.md)
  - [FindAssignmentResponse](docs/FindAssignmentResponse.md)
  - [FindClientResponse](docs/FindClientResponse.md)

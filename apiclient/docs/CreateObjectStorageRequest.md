@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Region** | **string** | Location of object storage. Available regions: EU, US-central, SIN | [default to "EU"]
+**Region** | **string** | Location of object storage. Available regions: us-central-1, eu-central-1, ap-southeast-1 | [default to "us-central-1"]
 **AutoScaling** | Pointer to [**AutoScalingTypeRequest**](AutoScalingTypeRequest.md) | Autoscaling settings | [optional] 
-**TotalPurchasedSpaceTB** | **float64** | Size of purchased of object storage in TerraByte. | 
+**TotalPurchasedSpaceTB** | **float64** | Size of purchased of object storage in TerraByte. | [default to 1]
 **DisplayName** | Pointer to **string** | The display name is useful to distinguish between different object storages, e.g. when they are located in the same region. If the customer does not provide a unique display name, it will be generated. Display names can be adapted at any time. | [optional] 
 
 ## Methods
