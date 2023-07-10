@@ -21,7 +21,7 @@ type DataCenterResponse struct {
 	Name string `json:"name"`
 	// Slug of the selected data center
 	Slug string `json:"slug"`
-	Capabilities []DatacenterCapabilities `json:"capabilities"`
+	Capabilities []string `json:"capabilities"`
 	// S3 URL of the data center
 	S3Url string `json:"s3Url"`
 	// Region Name
@@ -38,7 +38,7 @@ type DataCenterResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataCenterResponse(name string, slug string, capabilities []DatacenterCapabilities, s3Url string, regionName string, regionSlug string, tenantId string, customerId string) *DataCenterResponse {
+func NewDataCenterResponse(name string, slug string, capabilities []string, s3Url string, regionName string, regionSlug string, tenantId string, customerId string) *DataCenterResponse {
 	this := DataCenterResponse{}
 	this.Name = name
 	this.Slug = slug
@@ -108,9 +108,9 @@ func (o *DataCenterResponse) SetSlug(v string) {
 }
 
 // GetCapabilities returns the Capabilities field value
-func (o *DataCenterResponse) GetCapabilities() []DatacenterCapabilities {
+func (o *DataCenterResponse) GetCapabilities() []string {
 	if o == nil {
-		var ret []DatacenterCapabilities
+		var ret []string
 		return ret
 	}
 
@@ -119,7 +119,7 @@ func (o *DataCenterResponse) GetCapabilities() []DatacenterCapabilities {
 
 // GetCapabilitiesOk returns a tuple with the Capabilities field value
 // and a boolean to check if the value has been set.
-func (o *DataCenterResponse) GetCapabilitiesOk() (*[]DatacenterCapabilities, bool) {
+func (o *DataCenterResponse) GetCapabilitiesOk() (*[]string, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -127,7 +127,7 @@ func (o *DataCenterResponse) GetCapabilitiesOk() (*[]DatacenterCapabilities, boo
 }
 
 // SetCapabilities sets field value
-func (o *DataCenterResponse) SetCapabilities(v []DatacenterCapabilities) {
+func (o *DataCenterResponse) SetCapabilities(v []string) {
 	o.Capabilities = v
 }
 

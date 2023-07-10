@@ -88,7 +88,7 @@ info:
 
 
     Please visit [Fybe](https://fybe.com) for more general information.
-  termsOfService: https://fybe.com/en/legal/terms-and-conditions/
+  termsOfService: https://fybe.com/en/legal/user-agreement
   title: Fybe API Reference
   version: 1.0.0
   x-logo:
@@ -9410,7 +9410,7 @@ components:
           type: string
         sizeLimitTB:
           description: Limit for the Autoscaling of the selected object storage.
-          example: 2.5
+          example: 2
           format: double
           type: number
         errorMessage:
@@ -9428,7 +9428,7 @@ components:
         autoScaling: ""
         dataCenter: SIN
         displayName: myObjectStorage123
-        totalPurchasedSpaceTB: 12.75
+        totalPurchasedSpaceTB: 12
         s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
         createdDate: 2023-01-01T12:00:01.654Z
         tenantId: FY
@@ -9472,7 +9472,7 @@ components:
           type: string
         totalPurchasedSpaceTB:
           description: Size of purchased of object storage in TerraByte.
-          example: 12.75
+          example: 12
           format: double
           type: number
         s3Url:
@@ -9536,7 +9536,7 @@ components:
           autoScaling: ""
           dataCenter: SIN
           displayName: myObjectStorage123
-          totalPurchasedSpaceTB: 12.75
+          totalPurchasedSpaceTB: 12
           s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
           createdDate: 2023-01-01T12:00:01.654Z
           tenantId: FY
@@ -9549,7 +9549,7 @@ components:
           autoScaling: ""
           dataCenter: SIN
           displayName: myObjectStorage123
-          totalPurchasedSpaceTB: 12.75
+          totalPurchasedSpaceTB: 12
           s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
           createdDate: 2023-01-01T12:00:01.654Z
           tenantId: FY
@@ -9586,15 +9586,11 @@ components:
       - _pagination
       - data
       type: object
-    DatacenterCapabilities:
-      enum:
-      - Object-Storage
-      - Private-Networking
-      type: string
     DataCenterResponse:
       example:
         s3Url: us1-s3.fybe.com
-        capabilities: '[Object-storage]'
+        capabilities:
+        - Object-Storage
         regionSlug: US
         regionName: United States Central
         name: United States East
@@ -9613,9 +9609,15 @@ components:
           minLength: 1
           type: string
         capabilities:
-          example: '[Object-storage]'
+          example:
+          - Object-Storage
           items:
-            $ref: '#/components/schemas/DatacenterCapabilities'
+            enum:
+            - VPS
+            - VDS
+            - Object-Storage
+            - Private-Networking
+            type: string
           type: array
         s3Url:
           description: S3 URL of the data center
@@ -9656,7 +9658,8 @@ components:
       example:
         data:
         - s3Url: us1-s3.fybe.com
-          capabilities: '[Object-storage]'
+          capabilities:
+          - Object-Storage
           regionSlug: US
           regionName: United States Central
           name: United States East
@@ -9664,7 +9667,8 @@ components:
           customerId: "987654"
           slug: SIN
         - s3Url: us1-s3.fybe.com
-          capabilities: '[Object-storage]'
+          capabilities:
+          - Object-Storage
           regionSlug: US
           regionName: United States Central
           name: United States East
@@ -9712,7 +9716,7 @@ components:
           type: string
         sizeLimitTB:
           description: Limit for the Autoscaling of the selected object storage.
-          example: 2.5
+          example: 2
           format: double
           type: number
       required:
@@ -9723,14 +9727,14 @@ components:
       example:
         autoScaling: ""
         displayName: myObjectStorageEU123
-        region: SIN
-        totalPurchasedSpaceTB: 12.75
+        region: us-central-1
+        totalPurchasedSpaceTB: 12
       properties:
         region:
-          default: EU
-          description: 'Location of object storage. Available regions: EU, US-central,
-            SIN'
-          example: SIN
+          default: us-central-1
+          description: 'Location of object storage. Available regions: us-central-1,
+            eu-central-1, ap-southeast-1'
+          example: us-central-1
           minLength: 1
           type: string
         autoScaling:
@@ -9738,8 +9742,9 @@ components:
           - $ref: '#/components/schemas/AutoScalingTypeRequest'
           description: Autoscaling settings
         totalPurchasedSpaceTB:
+          default: 1
           description: Size of purchased of object storage in TerraByte.
-          example: 12.75
+          example: 12
           format: double
           type: number
         displayName:
@@ -9764,7 +9769,7 @@ components:
         dataCenter: US
         displayName: myObjectStorage US 111
         usedSpacePercentage: 64
-        totalPurchasedSpaceTB: 12.75
+        totalPurchasedSpaceTB: 12
         s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
         createdDate: 2023-01-01T12:00:01.654Z
         usedSpaceTB: 5.7
@@ -9809,7 +9814,7 @@ components:
           type: string
         totalPurchasedSpaceTB:
           description: Size of purchased of object storage in TerraByte.
-          example: 12.75
+          example: 12
           format: double
           type: number
         usedSpaceTB:
@@ -9889,7 +9894,7 @@ components:
           dataCenter: US
           displayName: myObjectStorage US 111
           usedSpacePercentage: 64
-          totalPurchasedSpaceTB: 12.75
+          totalPurchasedSpaceTB: 12
           s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
           createdDate: 2023-01-01T12:00:01.654Z
           usedSpaceTB: 5.7
@@ -9904,7 +9909,7 @@ components:
           dataCenter: US
           displayName: myObjectStorage US 111
           usedSpacePercentage: 64
-          totalPurchasedSpaceTB: 12.75
+          totalPurchasedSpaceTB: 12
           s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
           createdDate: 2023-01-01T12:00:01.654Z
           usedSpaceTB: 5.7
@@ -9937,7 +9942,7 @@ components:
           autoScaling: ""
           dataCenter: SIN
           displayName: myObjectStorage123
-          totalPurchasedSpaceTB: 12.75
+          totalPurchasedSpaceTB: 12
           s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
           createdDate: 2023-01-01T12:00:01.654Z
           tenantId: FY
@@ -9950,7 +9955,7 @@ components:
           autoScaling: ""
           dataCenter: SIN
           displayName: myObjectStorage123
-          totalPurchasedSpaceTB: 12.75
+          totalPurchasedSpaceTB: 12
           s3TenantId: 5ab4f7i9865v71d1zug22d1230dcav77
           createdDate: 2023-01-01T12:00:01.654Z
           tenantId: FY
@@ -9984,14 +9989,14 @@ components:
           type: string
         sizeLimitTB:
           description: Limit for the Autoscaling of the selected object storage.
-          example: 2.5
+          example: 2
           format: double
           type: number
       type: object
     UpgradeObjectStorageRequest:
       example:
         autoScaling: ""
-        totalPurchasedSpaceTB: 12.5
+        totalPurchasedSpaceTB: 12
       properties:
         autoScaling:
           allOf:
@@ -10003,7 +10008,7 @@ components:
             that can be used. If this limit is greater than the previous one, any
             additional storage space used will be charged. Please note that it is
             not possible to downgrade the limit once it has been increased.
-          example: 12.5
+          example: 12
           format: double
           type: number
       type: object
@@ -10018,7 +10023,7 @@ components:
         tenantId: INT
         customerId: "98765"
         region: United States (USA)
-        totalPurchasedSpaceTB: 11.5
+        totalPurchasedSpaceTB: 11
         status: DISABLED
       properties:
         tenantId:
@@ -10074,7 +10079,7 @@ components:
         totalPurchasedSpaceTB:
           description: Total object storage that was purchased by the customer (in
             terabytes).
-          example: 11.5
+          example: 11
           format: double
           type: number
         region:
@@ -10112,7 +10117,7 @@ components:
           tenantId: INT
           customerId: "98765"
           region: United States (USA)
-          totalPurchasedSpaceTB: 11.5
+          totalPurchasedSpaceTB: 11
           status: DISABLED
         - objectStorageId: 90e49b06-85f6-4545-904a-5f9f3cc846d7
           s3Url: us2-s3.fybe.com
@@ -10123,7 +10128,7 @@ components:
           tenantId: INT
           customerId: "98765"
           region: United States (USA)
-          totalPurchasedSpaceTB: 11.5
+          totalPurchasedSpaceTB: 11
           status: DISABLED
         _links:
           self: /v1/object-storages/ab101684-d3ef-40cc-afe9-0e34d32f3385

@@ -74,7 +74,6 @@ docs/CredentialData.md
 docs/CustomImagesStatsResponse.md
 docs/CustomImagesStatsResponseData.md
 docs/DataCenterResponse.md
-docs/DatacenterCapabilities.md
 docs/ExtraStorageRequest.md
 docs/FindAssignmentResponse.md
 docs/FindClientResponse.md
@@ -276,7 +275,6 @@ model_credential_data.go
 model_custom_images_stats_response.go
 model_custom_images_stats_response_data.go
 model_data_center_response.go
-model_datacenter_capabilities.go
 model_extra_storage_request.go
 model_find_assignment_response.go
 model_find_client_response.go
