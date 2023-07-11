@@ -27,21 +27,17 @@ var objectStorageCreateCmd = &cobra.Command{
 
 		switch content {
 		case nil:
-
-			var autoScaling objectStoragesClient.AutoScalingTypeRequest
 			if createScalingState != "" && createScalingLimitTB != 0 {
-				autoScaling = objectStoragesClient.AutoScalingTypeRequest{
+				createObjectStorageRequest.AutoScaling = &objectStoragesClient.AutoScalingTypeRequest{
 					State:       createScalingState,
 					SizeLimitTB: createScalingLimitTB,
 				}
 			}
 
-			createObjectStorageRequest.DisplayName = &createdisplayName
-			if createdisplayName == "" {
-				createObjectStorageRequest.DisplayName = nil
+			if createdisplayName != "" {
+				createObjectStorageRequest.DisplayName = &createdisplayName
 			}
 
-			createObjectStorageRequest.AutoScaling = &autoScaling
 			createObjectStorageRequest.Region = createRegion
 			createObjectStorageRequest.TotalPurchasedSpaceTB = createTotalPurchasedSpaceTB
 
@@ -75,6 +71,11 @@ var objectStorageCreateCmd = &cobra.Command{
 		viper.BindPFlag("region", cmd.Flags().Lookup("region"))
 		createRegion = viper.GetString("region")
 
+		if createRegion == "" {
+			cmd.Help()
+			log.Fatal("Argument region is empty. Please provide one.")
+		}
+
 		viper.BindPFlag("displayName", cmd.Flags().Lookup("displayName"))
 		createdisplayName = viper.GetString("displayName")
 
@@ -91,6 +92,12 @@ var objectStorageCreateCmd = &cobra.Command{
 
 		viper.BindPFlag("totalPurchasedSpaceTB", cmd.Flags().Lookup("totalPurchasedSpaceTB"))
 		createTotalPurchasedSpaceTB = viper.GetFloat64("totalPurchasedSpaceTB")
+
+		if createTotalPurchasedSpaceTB == 0 {
+			cmd.Help()
+			log.Fatal("Argument totalPurchasedSpaceTB is 0.")
+		}
+
 		return nil
 	},
 }
