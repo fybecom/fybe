@@ -1,5 +1,8 @@
 package cmd
 
+const ENABLED = "enabled"
+const DISABLED = "disabled"
+
 // create
 var (
 	createRegion                string
