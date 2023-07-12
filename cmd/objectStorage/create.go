@@ -27,21 +27,17 @@ var objectStorageCreateCmd = &cobra.Command{
 
 		switch content {
 		case nil:
-
-			var autoScaling objectStoragesClient.AutoScalingTypeRequest
-			if createScalingState != "" && createScalingLimitTB != 0 {
-				autoScaling = objectStoragesClient.AutoScalingTypeRequest{
+			if createScalingState == ENABLED && createScalingLimitTB != 0 {
+				createObjectStorageRequest.AutoScaling = &objectStoragesClient.AutoScalingTypeRequest{
 					State:       createScalingState,
 					SizeLimitTB: createScalingLimitTB,
 				}
 			}
 
-			createObjectStorageRequest.DisplayName = &createdisplayName
-			if createdisplayName == "" {
-				createObjectStorageRequest.DisplayName = nil
+			if createdisplayName != "" {
+				createObjectStorageRequest.DisplayName = &createdisplayName
 			}
 
-			createObjectStorageRequest.AutoScaling = &autoScaling
 			createObjectStorageRequest.Region = createRegion
 			createObjectStorageRequest.TotalPurchasedSpaceTB = createTotalPurchasedSpaceTB
 
@@ -75,22 +71,42 @@ var objectStorageCreateCmd = &cobra.Command{
 		viper.BindPFlag("region", cmd.Flags().Lookup("region"))
 		createRegion = viper.GetString("region")
 
+		if createRegion == "" {
+			cmd.Help()
+			log.Fatal("Argument region is empty. Please provide one.")
+		}
+
 		viper.BindPFlag("displayName", cmd.Flags().Lookup("displayName"))
 		createdisplayName = viper.GetString("displayName")
 
 		viper.BindPFlag("scalingState", cmd.Flags().Lookup("scalingState"))
 		createScalingState = viper.GetString("scalingState")
 
-		if !(createScalingState == "enabled" || createScalingState == "disabled") {
+		if !(createScalingState == ENABLED || createScalingState == DISABLED) {
 			cmd.Help()
-			log.Fatal("Autoscaling state can only be enabled or disabled.")
+			log.Fatalf("Autoscaling state can only be %s or %s.", ENABLED, DISABLED)
 		}
 
 		viper.BindPFlag("scalingLimitTB", cmd.Flags().Lookup("scalingLimitTB"))
 		createScalingLimitTB = viper.GetFloat64("scalingLimitTB")
 
+		if createScalingState == ENABLED && createScalingLimitTB == 0 {
+			cmd.Help()
+			log.Fatalf("Autoscaling state is %s but limit is 0.", ENABLED)
+		}
+		if createScalingState == DISABLED && createScalingLimitTB != 0 {
+			cmd.Help()
+			log.Fatalf("Autoscaling state is %s but limit was provided.", DISABLED)
+		}
+
 		viper.BindPFlag("totalPurchasedSpaceTB", cmd.Flags().Lookup("totalPurchasedSpaceTB"))
 		createTotalPurchasedSpaceTB = viper.GetFloat64("totalPurchasedSpaceTB")
+
+		if createTotalPurchasedSpaceTB == 0 {
+			cmd.Help()
+			log.Fatal("Argument totalPurchasedSpaceTB is 0.")
+		}
+
 		return nil
 	},
 }
@@ -102,8 +118,8 @@ func init() {
 
 	objectStorageCreateCmd.Flags().StringVarP(&createdisplayName, "displayName", "n", "", `Display name helps to differentiate between object storages.`)
 
-	objectStorageCreateCmd.Flags().StringVarP(&createScalingState, "scalingState", "s", "disabled",
-		`Set scalingState to enable autoscaling (allowed values are enabled|disabled)`)
+	objectStorageCreateCmd.Flags().StringVarP(&createScalingState, "scalingState", "s", DISABLED,
+		fmt.Sprintf(`Set scalingState to enable autoscaling (allowed values are %s|%s)`, ENABLED, DISABLED))
 
 	objectStorageCreateCmd.Flags().Float64VarP(&createScalingLimitTB, "scalingLimitTB", "l", 0,
 		`The size limit for autoscaling in TB, required if scalingState is set.`)
